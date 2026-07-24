@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: oklch(0.955 0.018 240);
+  --foreground: oklch(0.22 0.04 245);
+  --card: oklch(0.992 0.008 235);
+  --card-foreground: oklch(0.22 0.04 245);
+  --primary: oklch(0.55 0.15 245);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.94 0.025 240);
+  --secondary-foreground: oklch(0.3 0.06 245);
+  --muted: oklch(0.95 0.018 235);
+  --muted-foreground: oklch(0.5 0.04 245);
+  --accent: oklch(0.91 0.045 230);
+  --accent-foreground: oklch(0.27 0.07 245);
+  --border: oklch(0.86 0.035 235);
+  --ring: oklch(0.6 0.14 240);
+  --radius: 0.9rem;
+}
+
+.dark {
+  --background: oklch(0.16 0.04 250);
+  --foreground: oklch(0.96 0.012 235);
+  --card: oklch(0.205 0.04 250);
+  --card-foreground: oklch(0.96 0.012 235);
+  --primary: oklch(0.72 0.13 235);
+  --primary-foreground: oklch(0.16 0.045 250);
+  --secondary: oklch(0.26 0.05 248);
+  --secondary-foreground: oklch(0.94 0.018 235);
+  --muted: oklch(0.255 0.04 248);
+  --muted-foreground: oklch(0.73 0.025 235);
+  --accent: oklch(0.3 0.07 242);
+  --accent-foreground: oklch(0.93 0.03 230);
+  --border: oklch(1 0 0 / 12%);
+  --ring: oklch(0.72 0.13 235);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+* { border-color: var(--border); }
+html { background: var(--background); }
+body {
+  margin: 0;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at 8% 9%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 30rem),
+    radial-gradient(circle at 92% 38%, rgba(56, 189, 248, .12), transparent 34rem),
+    linear-gradient(135deg, rgba(255, 255, 255, .38), transparent 48%),
+    var(--background);
+  font-family: "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.resume-document { padding: 0 0 2.5rem; }
+.resume-toolbar {
+  background: linear-gradient(105deg, rgba(44, 46, 58, .98), rgba(16, 28, 48, .97));
+  border-color: rgba(147, 197, 253, .24);
+  box-shadow: 0 18px 50px rgba(15, 23, 42, .24), inset 0 1px 0 rgba(255, 255, 255, .08);
+}
+.resume-page {
+  position: relative;
+  width: 210mm;
+  height: 297mm;
+  margin: 0 auto;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid color-mix(in oklab, var(--primary) 18%, transparent);
+  box-shadow: 0 28px 80px rgba(30, 64, 175, .14);
+}
+.resume-page::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 42mm;
+  height: 2.4mm;
+  background: linear-gradient(90deg, #1e3a8a, #2563eb 58%, #67e8f9);
+}
+.resume-page::before {
+  content: "";
+  position: absolute;
+  right: -18mm;
+  bottom: -22mm;
+  z-index: 0;
+  width: 70mm;
+  height: 70mm;
+  border: 1px solid rgba(59, 130, 246, .08);
+  border-radius: 50%;
+  box-shadow: 0 0 0 12mm rgba(59, 130, 246, .025), 0 0 0 24mm rgba(6, 182, 212, .02);
+  pointer-events: none;
+}
+.resume-sidebar {
+  background:
+    radial-gradient(circle at 12% 2%, rgba(96, 165, 250, .24), transparent 30%),
+    linear-gradient(168deg, rgba(56, 189, 248, .12), transparent 42%),
+    linear-gradient(180deg, #2c2e3a, #202d44 46%, #101a2d);
+  box-shadow: inset -1px 0 rgba(191, 219, 254, .14);
+}
+.resume-content {
+  position: relative;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(59, 130, 246, .045), transparent 22mm),
+    linear-gradient(180deg, rgba(239, 246, 255, .42), transparent 38mm),
+    var(--card);
+}
+.portrait-frame { position: relative; }
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: -3px 8px 8px -3px;
+  z-index: -1;
+  border: 1px solid rgba(147, 197, 253, .86);
+  border-radius: 1.7rem 4.2rem 1.7rem 4.2rem;
+  box-shadow: 0 16px 42px rgba(15, 23, 42, .38);
+}
+.job-card { break-inside: avoid; box-shadow: 0 10px 28px rgba(30, 64, 175, .07); }
+
+@media (max-width: 900px) {
+  .resume-document { padding-inline: .75rem; }
+  .resume-page { width: 100%; height: auto; min-height: 297mm; grid-template-columns: 1fr; }
+  .resume-sidebar { padding: 2rem; }
+  .resume-content { padding: 2rem; }
+}
+
+@page { size: A4; margin: 0; }
+@media print {
+  html, body { background: #fff !important; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .resume-document { padding: 0; }
+  .resume-page { width: 210mm; height: 297mm; margin: 0; border: 0; box-shadow: none; break-after: page; }
+  .resume-page:last-child { break-after: auto; }
+  .dark { --card: oklch(0.992 0.008 235); --card-foreground: oklch(0.22 0.04 245); }
+}
