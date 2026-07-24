@@ -81,9 +81,9 @@ body {
 .resume-toolbar {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(110deg, var(--portrait-ink), #29354a 62%, #1b2b42);
-  border-color: rgba(168, 213, 229, .22);
-  box-shadow: 0 18px 50px rgba(52, 56, 68, .24), inset 0 1px 0 rgba(255, 255, 255, .09);
+  background: linear-gradient(110deg, rgba(52, 56, 68, .9), rgba(41, 53, 74, .88) 62%, rgba(27, 43, 66, .9));
+  border-color: rgba(168, 213, 229, .17);
+  box-shadow: 0 12px 36px rgba(18, 24, 38, .22), inset 0 1px 0 rgba(255, 255, 255, .07);
 }
 .resume-toolbar::after {
   content: "";
@@ -182,7 +182,7 @@ body {
 .career-track {
   position: relative;
   display: grid;
-  gap: .85rem;
+  gap: .72rem;
   padding-left: 1rem;
 }
 .career-track::before {
@@ -192,7 +192,7 @@ body {
   bottom: .2rem;
   left: .2rem;
   width: 1px;
-  background: linear-gradient(var(--accent-cyan), rgba(139, 233, 253, .12));
+  background: linear-gradient(#86a4b9, rgba(113, 137, 158, .12));
 }
 .career-step {
   position: relative;
@@ -206,7 +206,7 @@ body {
   left: -1.03rem;
   width: 5px;
   height: 5px;
-  border: 1px solid var(--accent-cyan);
+  border: 1px solid #86a4b9;
   border-radius: 50%;
   background: var(--portrait-ink);
 }
@@ -357,6 +357,7 @@ body {
   .resume-document { padding: 0; }
   .resume-page { width: 210mm; height: 297mm; margin: 0; border: 0; box-shadow: none; break-after: page; }
   .resume-page:last-child { break-after: auto; }
+  .job-card, .career-card, .metric-card, .value-card { box-shadow: none !important; }
   .dark { --card: oklch(0.992 0.008 235); --card-foreground: oklch(0.22 0.04 245); }
   .dark .resume-content {
     background:
