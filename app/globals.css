@@ -7,6 +7,7 @@
   --portrait-deep: #171d2a;
   --ocean-blue: #567da6;
   --ocean-glow: #a8d5e5;
+  --accent-cyan: #8be9fd;
   --sea-glass: #f4f8fb;
   --background: oklch(0.955 0.018 240);
   --foreground: oklch(0.22 0.04 245);
@@ -110,6 +111,9 @@ body {
   border: 1px solid color-mix(in oklab, var(--primary) 18%, transparent);
   box-shadow: 0 28px 80px rgba(52, 56, 68, .17);
 }
+.dark .resume-page {
+  box-shadow: 0 34px 88px rgba(3, 8, 18, .46), 0 0 0 1px rgba(139, 233, 253, .055);
+}
 .resume-page::after {
   content: "";
   position: absolute;
@@ -117,7 +121,7 @@ body {
   top: 0;
   width: 42mm;
   height: 2.4mm;
-  background: linear-gradient(90deg, var(--portrait-ink), var(--ocean-blue) 58%, var(--ocean-glow));
+  background: linear-gradient(90deg, var(--portrait-ink), var(--ocean-blue) 58%, var(--accent-cyan));
 }
 .resume-page::before {
   content: "";
@@ -188,7 +192,7 @@ body {
   bottom: .2rem;
   left: .2rem;
   width: 1px;
-  background: linear-gradient(var(--ocean-glow), rgba(168, 213, 229, .12));
+  background: linear-gradient(var(--accent-cyan), rgba(139, 233, 253, .12));
 }
 .career-step {
   position: relative;
@@ -202,7 +206,7 @@ body {
   left: -1.03rem;
   width: 5px;
   height: 5px;
-  border: 1px solid var(--ocean-glow);
+  border: 1px solid var(--accent-cyan);
   border-radius: 50%;
   background: var(--portrait-ink);
 }
@@ -288,11 +292,14 @@ body {
 .section-heading::after {
   content: "";
   position: absolute;
-  top: .72rem;
-  right: 0;
-  width: 25mm;
+  bottom: -.55rem;
+  left: 0;
+  width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, rgba(86, 125, 166, .34), transparent);
+  background: linear-gradient(90deg, rgba(86, 125, 166, .62), rgba(86, 125, 166, .2) 38%, transparent 86%);
+}
+.dark .section-heading::after {
+  background: linear-gradient(90deg, rgba(139, 233, 253, .72), rgba(86, 125, 166, .26) 42%, transparent 86%);
 }
 .metric-card {
   border-color: rgba(86, 125, 166, .22);
@@ -303,6 +310,11 @@ body {
   overflow: hidden;
   break-inside: avoid;
   box-shadow: 0 12px 30px rgba(52, 56, 68, .075);
+}
+.dark .job-card,
+.dark .career-card {
+  background: linear-gradient(145deg, #303341, #2b2d3a 68%, #282a36);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .035), 0 12px 28px rgba(10, 14, 24, .14);
 }
 .job-card::before {
   content: "";
@@ -327,7 +339,8 @@ body {
   white-space: nowrap;
 }
 .dark .outcome-chip {
-  color: #c7e6f0;
+  border-color: rgba(139, 233, 253, .2);
+  color: var(--accent-cyan);
 }
 
 @media (max-width: 900px) {

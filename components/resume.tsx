@@ -19,7 +19,7 @@ function Sidebar({ page = 1 }: { page?: number }) {
     <aside className="resume-sidebar relative overflow-hidden p-[11mm_8mm_8mm] text-white">
       <div className="absolute -right-20 -top-20 size-60 rounded-full bg-blue-400/20 blur-3xl" />
       <div className="relative">
-        <p className="mb-3 text-[8px] font-bold tracking-[.25em] text-sky-300">INTERNAL CONTROL · AUDIT · RISK</p>
+        <p className="mb-3 text-[8px] font-bold tracking-[.25em] text-[#8be9fd]">INTERNAL CONTROL · AUDIT · RISK</p>
         <h1 className="font-serif text-[29pt] font-black tracking-[.12em]">何宁宁</h1>
         <p className="mt-2 text-[11pt] font-medium tracking-[.22em] text-white/70">内控与审计负责人</p>
         {page === 1 ? (
@@ -44,9 +44,9 @@ function Sidebar({ page = 1 }: { page?: number }) {
           <SideBlock icon={<Award />} title="专业资格" items={qualifications} />
           <SideBlock icon={<ShieldCheck />} title="专业能力" items={strengths} />
           <div className="mt-7 space-y-2 border-t border-white/15 pt-5 text-[9.4pt] text-white/72">
-            <p className="flex items-center gap-2"><Phone className="size-3.5 text-sky-300" />182 2127 2093</p>
-            <p className="flex items-center gap-2"><Mail className="size-3.5 text-sky-300" />381162061@qq.com</p>
-            <p className="flex items-center gap-2"><MapPin className="size-3.5 text-sky-300" />成都市武侯区</p>
+            <p className="flex items-center gap-2"><Phone className="size-3.5 text-[#8be9fd]" />182 2127 2093</p>
+            <p className="flex items-center gap-2"><Mail className="size-3.5 text-[#8be9fd]" />381162061@qq.com</p>
+            <p className="flex items-center gap-2"><MapPin className="size-3.5 text-[#8be9fd]" />成都市武侯区</p>
           </div>
         </>}
 
@@ -76,50 +76,50 @@ function SidebarPanel({ eyebrow, title, children }: { eyebrow: string; title: st
 
 function SideBlock({ icon, title, items }: { icon: React.ReactNode; title: string; items: string[] }) {
   return <div className="mt-7 border-t border-white/15 pt-5">
-    <h2 className="mb-4 flex items-center gap-2 text-[11pt] font-extrabold tracking-[.15em]"><span className="text-sky-300 [&_svg]:size-4">{icon}</span>{title}</h2>
-    <ul className="space-y-2.5 text-[9.4pt] leading-relaxed text-white/78">{items.map((item) => <li key={item} className="flex gap-2"><span className="mt-[.55em] size-1.5 shrink-0 rounded-full border border-cyan-300" />{item}</li>)}</ul>
+    <h2 className="mb-4 flex items-center gap-2 text-[11pt] font-extrabold tracking-[.15em]"><span className="text-[#8be9fd] [&_svg]:size-4">{icon}</span>{title}</h2>
+    <ul className="space-y-2.5 text-[9.4pt] leading-relaxed text-white/78">{items.map((item) => <li key={item} className="flex gap-2"><span className="mt-[.55em] size-1.5 shrink-0 rounded-full border border-[#8be9fd]/80" />{item}</li>)}</ul>
   </div>;
 }
 
 function SectionHeading({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) {
   return <div className="section-heading mb-5">
-    <Badge variant="outline" className="mb-2 border-blue-600/25 bg-blue-500/7 text-[7px] tracking-[.22em] text-blue-800 dark:text-blue-200">{eyebrow}</Badge>
+    <Badge variant="outline" className="mb-2 border-blue-600/25 bg-blue-500/7 text-[7px] tracking-[.22em] text-blue-800 dark:border-[#8be9fd]/30 dark:bg-[#8be9fd]/8 dark:text-[#8be9fd]">{eyebrow}</Badge>
     <h2 className="font-serif text-[20pt] font-black tracking-tight text-[#343844] dark:text-sky-50">{children}</h2>
   </div>;
 }
 
 function Job({ title, company, period, lead, highlights = [], groups, compact = false }: { title: string; company: string; period: string; lead: string; highlights?: string[]; groups: { title: string; bullets: string[] }[]; compact?: boolean }) {
-  return <Card className="job-card border-blue-900/10 bg-white/78 dark:border-blue-100/10 dark:bg-white/[.04]">
+  return <Card className="job-card border-blue-900/10 bg-white/78 dark:border-[#56627a]">
     <CardHeader className={compact ? "p-4 pb-2.5" : "p-5 pb-3"}>
       <div className="flex items-start justify-between gap-4">
-        <div><CardTitle className="text-[13pt] text-slate-950 dark:text-white">{title}</CardTitle><p className="mt-1.5 text-[9pt] font-semibold text-blue-700 dark:text-sky-300">{company}</p></div>
-        <Badge variant="secondary" className="shrink-0 bg-blue-50 text-[7.5pt] font-semibold text-blue-800 dark:bg-blue-300/10 dark:text-blue-100">{period}</Badge>
+        <div><CardTitle className="text-[13pt] text-slate-950 dark:text-white">{title}</CardTitle><p className="mt-1.5 text-[9pt] font-semibold text-blue-700 dark:text-[#8be9fd]">{company}</p></div>
+        <Badge variant="secondary" className="shrink-0 bg-blue-50 text-[7.5pt] font-semibold text-blue-800 dark:bg-[#8be9fd]/10 dark:text-[#8be9fd]">{period}</Badge>
       </div>
     </CardHeader>
     <CardContent className={compact ? "space-y-2.5 p-4 pt-0" : "space-y-3 p-5 pt-0"}>
-      <p className={`rounded-lg border-l-2 border-blue-500 bg-blue-500/[.055] px-3 text-[8.7pt] font-medium text-slate-600 dark:text-slate-300 ${compact ? "py-1.5 leading-[1.55]" : "py-2 leading-[1.65]"}`}>{lead}</p>
+      <p className={`rounded-lg border-l-2 border-blue-500 bg-blue-500/[.055] px-3 text-[8.7pt] font-medium text-slate-600 dark:text-[#c7ccd8] ${compact ? "py-1.5 leading-[1.55]" : "py-2 leading-[1.65]"}`}>{lead}</p>
       {highlights.length > 0 && <div className="flex flex-wrap gap-1.5">{highlights.map((highlight) => <span key={highlight} className="outcome-chip">{highlight}</span>)}</div>}
       {groups.map((group, index) => <div key={group.title}>
         {index > 0 && <Separator className={`${compact ? "mb-2" : "mb-3"} bg-slate-200/70 dark:bg-white/10`} />}
-        <h4 className={`${compact ? "mb-1.5" : "mb-2"} flex items-center gap-2 text-[9.3pt] font-bold text-slate-800 dark:text-slate-100`}><CheckCircle2 className="size-3.5 text-blue-600" />{group.title}</h4>
-        <ul className={`${compact ? "space-y-1 leading-[1.48]" : "space-y-1.5 leading-[1.58]"} pl-5 text-[8.35pt] text-slate-600 dark:text-slate-300`}>{group.bullets.map((bullet) => <li key={bullet} className="list-disc marker:text-sky-500">{bullet}</li>)}</ul>
+        <h4 className={`${compact ? "mb-1.5" : "mb-2"} flex items-center gap-2 text-[9.3pt] font-bold text-slate-800 dark:text-slate-100`}><CheckCircle2 className="size-3.5 text-blue-600 dark:text-[#8be9fd]" />{group.title}</h4>
+        <ul className={`${compact ? "space-y-1 leading-[1.48]" : "space-y-1.5 leading-[1.58]"} pl-5 text-[8.35pt] text-slate-600 dark:text-[#c7ccd8]`}>{group.bullets.map((bullet) => <li key={bullet} className="list-disc marker:text-sky-500 dark:marker:text-[#8be9fd]">{bullet}</li>)}</ul>
       </div>)}
     </CardContent>
   </Card>;
 }
 
 export function Resume() {
-  return <main className="resume-document space-y-6 print:space-y-0">
+  return <main className="resume-document space-y-8 print:space-y-0">
     <section className="resume-page grid grid-cols-[34.5%_65.5%]">
       <Sidebar page={1} />
       <article className="resume-content p-[12mm_10mm_8mm]">
         <SectionHeading eyebrow="ABOUT ME">职业概述</SectionHeading>
-        <div className="space-y-3 text-[9pt] leading-[1.75] text-slate-600 dark:text-slate-300">
+        <div className="space-y-3 text-[9pt] leading-[1.75] text-slate-600 dark:text-[#c7ccd8]">
           <p>拥有 15 年跨行业（供应链、制药、连锁零售）全链路风控经验，具备从战略风控架构设计到全流程审计落地的完整闭环能力。曾主导两轮企业上市合规筹备，从零组建并领导内控审计部门，全面负责集团内控体系搭建、审计制度建立及团队管理。</p>
           <p>以“发现问题 → 建章立制 → 推动变革 → 体系化运行”的闭环方式推动管理升级，累计优化成本超千万元，整改落地率持续保持 90% 以上，深刻理解上市公司治理规范与监管逻辑。</p>
         </div>
         <div className="my-5 grid grid-cols-3 gap-2">
-          {[['15 年','跨行业经验'],['2 轮','IPO 合规筹备'],['90%+','整改落地率']].map(([value,label]) => <Card key={label} className="metric-card bg-gradient-to-br from-[#eaf2f8] via-[#f5f9fb] to-white shadow-none dark:from-blue-950/50 dark:via-slate-900/50 dark:to-transparent"><CardContent className="p-3 text-center"><strong className="block text-[15pt] text-[#343844] dark:text-white">{value}</strong><span className="text-[7.5pt] text-blue-800/65 dark:text-blue-100/65">{label}</span></CardContent></Card>)}
+          {[['15 年','跨行业经验'],['2 轮','IPO 合规筹备'],['90%+','整改落地率']].map(([value,label]) => <Card key={label} className="metric-card bg-gradient-to-br from-[#eaf2f8] via-[#f5f9fb] to-white shadow-none dark:border-[#56627a] dark:from-[#343746] dark:via-[#2e303d] dark:to-[#282a36]"><CardContent className="p-3 text-center"><strong className="block text-[15pt] text-[#343844] dark:text-white">{value}</strong><span className="text-[7.5pt] text-blue-800/65 dark:text-blue-100/75">{label}</span></CardContent></Card>)}
         </div>
         <SectionHeading eyebrow="CAREER">核心经历</SectionHeading>
         <Job title="内控经理（部门负责人）" company="三旋食品供应链" period="2024.04 – 至今" lead="受邀加盟，从零组建内控部门，全面统筹集团内控体系搭建与审计职能建设，建立覆盖采购、生产、物流全链条的管控框架。" highlights={["50+ 项隐患整改", "150 万元年化降本", "审批效率 +30%"]} groups={[
@@ -160,11 +160,11 @@ export function Resume() {
             ['审计专员','上海剪刀石头布家居','2014.06 – 2017.06','通过售后服务审计发现并整改违规收费，优化工厂订单分类标准，提升生产效率。'],
             ['审计专员','上海华申会计师事务所','2012.03 – 2013.03','参与多项外部审计项目，负责审计程序执行、底稿编制及审计建议提出。'],
             ['技术员','东方电气峨眉半导体材料厂','2008.07 – 2012.03','负责多晶硅提纯环节的技术支持和异常排查，积累制造业现场流程与质量管理经验。']
-          ].map(([title,company,period,description]) => <Card key={company} className="border-blue-900/10 bg-white/72 shadow-none dark:border-white/10 dark:bg-white/[.04]"><CardContent className="p-3.5"><div className="flex items-start justify-between gap-3"><div><h3 className="text-[10pt] font-bold text-slate-950 dark:text-white">{title} · {company}</h3><p className="mt-1 text-[8.2pt] leading-relaxed text-slate-500 dark:text-slate-400">{description}</p></div><Badge variant="outline" className="shrink-0 border-blue-700/20 text-[7pt] text-blue-800 dark:text-blue-200">{period}</Badge></div></CardContent></Card>)}
+          ].map(([title,company,period,description]) => <Card key={company} className="career-card border-blue-900/10 bg-white/72 shadow-none dark:border-[#56627a]"><CardContent className="p-3.5"><div className="flex items-start justify-between gap-3"><div><h3 className="text-[10pt] font-bold text-slate-950 dark:text-white">{title} · {company}</h3><p className="mt-1 text-[8.2pt] leading-relaxed text-slate-500 dark:text-[#bfc5d2]">{description}</p></div><Badge variant="outline" className="shrink-0 border-blue-700/20 text-[7pt] text-blue-800 dark:border-[#8be9fd]/25 dark:text-[#8be9fd]">{period}</Badge></div></CardContent></Card>)}
         </div>
 
         <Card className="mt-4 overflow-hidden border-0 bg-gradient-to-br from-[#343844] via-[#26344a] to-[#17263d] text-white shadow-xl shadow-[#343844]/25">
-          <CardHeader className="p-4 pb-2"><Badge className="w-fit bg-sky-400 text-slate-950">VALUE PROPOSITION</Badge><CardTitle className="pt-1.5 font-serif text-[18pt]">管理价值主张</CardTitle></CardHeader>
+          <CardHeader className="p-4 pb-2"><Badge className="w-fit bg-[#8be9fd] text-slate-950">VALUE PROPOSITION</Badge><CardTitle className="pt-1.5 font-serif text-[18pt]">管理价值主张</CardTitle></CardHeader>
           <CardContent className="p-4 pt-0 text-[9pt] leading-[1.65] text-white/75">以风险为导向、以数据为依据、以整改落地为结果，将审计从“发现问题”升级为“推动经营改善”的管理工具；同时通过制度、流程、系统与文化四位一体，构建可持续运行的企业治理能力。</CardContent>
         </Card>
       </article>

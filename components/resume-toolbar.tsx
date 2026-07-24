@@ -1,16 +1,25 @@
 "use client";
 
 import { Moon, Printer, Sun } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 
 export function ResumeToolbar() {
   const [dark, setDark] = useState(false);
 
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      setDark(document.documentElement.classList.contains("dark"));
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
   function toggleTheme() {
     setDark((current) => {
       const next = !current;
       document.documentElement.classList.toggle("dark", next);
+      localStorage.setItem("resume-theme", next ? "dark" : "light");
       return next;
     });
   }
@@ -25,7 +34,7 @@ export function ResumeToolbar() {
         <Button aria-label="切换主题" aria-pressed={dark} title={dark ? "切换到浅色主题" : "切换到深色主题"} variant="ghost" size="sm" className="border border-white/10 text-sky-50 hover:bg-white/10 hover:text-white" onClick={toggleTheme}>
           {dark ? <Sun /> : <Moon />}
         </Button>
-        <Button size="sm" className="bg-[#a8d5e5] text-[#252a37] shadow-lg shadow-slate-950/25 hover:bg-[#bee4ee]" onClick={() => window.print()}>
+        <Button size="sm" className="bg-[#8be9fd] text-[#252a37] shadow-lg shadow-slate-950/25 hover:bg-[#b8f1ff]" onClick={() => window.print()}>
           <Printer /> 导出 PDF
         </Button>
       </div>
