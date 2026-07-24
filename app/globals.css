@@ -3,6 +3,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  --portrait-ink: #343844;
+  --portrait-deep: #171d2a;
+  --ocean-blue: #567da6;
+  --ocean-glow: #a8d5e5;
+  --sea-glass: #f4f8fb;
   --background: oklch(0.955 0.018 240);
   --foreground: oklch(0.22 0.04 245);
   --card: oklch(0.992 0.008 235);
@@ -63,8 +68,8 @@ body {
   margin: 0;
   color: var(--foreground);
   background:
-    radial-gradient(circle at 8% 9%, color-mix(in oklab, var(--primary) 16%, transparent), transparent 30rem),
-    radial-gradient(circle at 92% 38%, rgba(56, 189, 248, .12), transparent 34rem),
+    radial-gradient(circle at 8% 9%, rgba(86, 125, 166, .18), transparent 30rem),
+    radial-gradient(circle at 92% 38%, rgba(168, 213, 229, .18), transparent 34rem),
     linear-gradient(135deg, rgba(255, 255, 255, .38), transparent 48%),
     var(--background);
   font-family: "Noto Sans CJK SC", "Source Han Sans SC", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
@@ -73,9 +78,27 @@ body {
 
 .resume-document { padding: 0 0 2.5rem; }
 .resume-toolbar {
-  background: linear-gradient(105deg, rgba(44, 46, 58, .98), rgba(16, 28, 48, .97));
-  border-color: rgba(147, 197, 253, .24);
-  box-shadow: 0 18px 50px rgba(15, 23, 42, .24), inset 0 1px 0 rgba(255, 255, 255, .08);
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(110deg, var(--portrait-ink), #29354a 62%, #1b2b42);
+  border-color: rgba(168, 213, 229, .22);
+  box-shadow: 0 18px 50px rgba(52, 56, 68, .24), inset 0 1px 0 rgba(255, 255, 255, .09);
+}
+.resume-toolbar::after {
+  content: "";
+  position: absolute;
+  right: 42px;
+  bottom: -42px;
+  width: 150px;
+  height: 90px;
+  border: 1px solid rgba(168, 213, 229, .12);
+  border-radius: 50%;
+  box-shadow: 0 0 0 14px rgba(168, 213, 229, .035);
+  pointer-events: none;
+}
+.resume-toolbar > * {
+  position: relative;
+  z-index: 1;
 }
 .resume-page {
   position: relative;
@@ -85,7 +108,7 @@ body {
   overflow: hidden;
   background: var(--card);
   border: 1px solid color-mix(in oklab, var(--primary) 18%, transparent);
-  box-shadow: 0 28px 80px rgba(30, 64, 175, .14);
+  box-shadow: 0 28px 80px rgba(52, 56, 68, .17);
 }
 .resume-page::after {
   content: "";
@@ -94,7 +117,7 @@ body {
   top: 0;
   width: 42mm;
   height: 2.4mm;
-  background: linear-gradient(90deg, #1e3a8a, #2563eb 58%, #67e8f9);
+  background: linear-gradient(90deg, var(--portrait-ink), var(--ocean-blue) 58%, var(--ocean-glow));
 }
 .resume-page::before {
   content: "";
@@ -104,37 +127,85 @@ body {
   z-index: 0;
   width: 70mm;
   height: 70mm;
-  border: 1px solid rgba(59, 130, 246, .08);
+  border: 1px solid rgba(86, 125, 166, .08);
   border-radius: 50%;
-  box-shadow: 0 0 0 12mm rgba(59, 130, 246, .025), 0 0 0 24mm rgba(6, 182, 212, .02);
+  box-shadow: 0 0 0 12mm rgba(86, 125, 166, .025), 0 0 0 24mm rgba(168, 213, 229, .02);
   pointer-events: none;
 }
 .resume-sidebar {
   background:
-    radial-gradient(circle at 12% 2%, rgba(96, 165, 250, .24), transparent 30%),
-    linear-gradient(168deg, rgba(56, 189, 248, .12), transparent 42%),
-    linear-gradient(180deg, #2c2e3a, #202d44 46%, #101a2d);
-  box-shadow: inset -1px 0 rgba(191, 219, 254, .14);
+    radial-gradient(circle at 8% 0%, rgba(116, 151, 188, .18), transparent 29%),
+    linear-gradient(165deg, rgba(168, 213, 229, .07), transparent 44%),
+    linear-gradient(180deg, var(--portrait-ink), #26344a 48%, var(--portrait-deep));
+  box-shadow: inset -1px 0 rgba(168, 213, 229, .13);
+}
+.resume-sidebar::after {
+  content: "";
+  position: absolute;
+  left: -42mm;
+  bottom: 18mm;
+  width: 78mm;
+  height: 78mm;
+  border: 1px solid rgba(168, 213, 229, .07);
+  border-radius: 50%;
+  box-shadow: 0 0 0 11mm rgba(168, 213, 229, .018), 0 0 0 22mm rgba(168, 213, 229, .012);
+  pointer-events: none;
+}
+.resume-sidebar > .relative {
+  z-index: 1;
 }
 .resume-content {
   position: relative;
   z-index: 1;
   background:
-    linear-gradient(90deg, rgba(59, 130, 246, .045), transparent 22mm),
-    linear-gradient(180deg, rgba(239, 246, 255, .42), transparent 38mm),
+    linear-gradient(90deg, rgba(86, 125, 166, .045), transparent 22mm),
+    linear-gradient(180deg, rgba(244, 248, 251, .72), transparent 42mm),
     var(--card);
 }
-.portrait-frame { position: relative; }
+.portrait-frame {
+  position: relative;
+  background: var(--portrait-ink);
+  box-shadow: 0 20px 45px rgba(23, 29, 42, .28);
+}
 .portrait-frame::before {
   content: "";
   position: absolute;
   inset: -3px 8px 8px -3px;
   z-index: -1;
-  border: 1px solid rgba(147, 197, 253, .86);
+  border: 1px solid rgba(168, 181, 201, .88);
   border-radius: 1.7rem 4.2rem 1.7rem 4.2rem;
   box-shadow: 0 16px 42px rgba(15, 23, 42, .38);
 }
-.job-card { break-inside: avoid; box-shadow: 0 10px 28px rgba(30, 64, 175, .07); }
+.section-heading {
+  position: relative;
+}
+.section-heading::after {
+  content: "";
+  position: absolute;
+  top: .72rem;
+  right: 0;
+  width: 25mm;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(86, 125, 166, .34), transparent);
+}
+.metric-card {
+  border-color: rgba(86, 125, 166, .22);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .75), 0 8px 22px rgba(52, 56, 68, .055);
+}
+.job-card {
+  position: relative;
+  overflow: hidden;
+  break-inside: avoid;
+  box-shadow: 0 12px 30px rgba(52, 56, 68, .075);
+}
+.job-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--portrait-ink), var(--ocean-blue), transparent 75%);
+}
 
 @media (max-width: 900px) {
   .resume-document { padding-inline: .75rem; }

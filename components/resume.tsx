@@ -61,9 +61,9 @@ function SideBlock({ icon, title, items }: { icon: React.ReactNode; title: strin
 }
 
 function SectionHeading({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) {
-  return <div className="mb-5">
+  return <div className="section-heading mb-5">
     <Badge variant="outline" className="mb-2 border-blue-600/25 bg-blue-500/7 text-[7px] tracking-[.22em] text-blue-800 dark:text-blue-200">{eyebrow}</Badge>
-    <h2 className="font-serif text-[20pt] font-black tracking-tight text-slate-950 dark:text-sky-50">{children}</h2>
+    <h2 className="font-serif text-[20pt] font-black tracking-tight text-[#343844] dark:text-sky-50">{children}</h2>
   </div>;
 }
 
@@ -97,7 +97,7 @@ export function Resume() {
           <p>以“发现问题 → 建章立制 → 推动变革 → 体系化运行”的闭环方式推动管理升级，累计优化成本超千万元，整改落地率持续保持 90% 以上，深刻理解上市公司治理规范与监管逻辑。</p>
         </div>
         <div className="my-5 grid grid-cols-3 gap-2">
-          {[['15 年','跨行业经验'],['2 轮','IPO 合规筹备'],['90%+','整改落地率']].map(([value,label]) => <Card key={label} className="border-blue-700/12 bg-gradient-to-br from-blue-500/[.1] via-cyan-500/[.04] to-transparent shadow-none"><CardContent className="p-3 text-center"><strong className="block text-[15pt] text-slate-950 dark:text-white">{value}</strong><span className="text-[7.5pt] text-blue-800/65 dark:text-blue-100/65">{label}</span></CardContent></Card>)}
+          {[['15 年','跨行业经验'],['2 轮','IPO 合规筹备'],['90%+','整改落地率']].map(([value,label]) => <Card key={label} className="metric-card bg-gradient-to-br from-[#eaf2f8] via-[#f5f9fb] to-white shadow-none dark:from-blue-950/50 dark:via-slate-900/50 dark:to-transparent"><CardContent className="p-3 text-center"><strong className="block text-[15pt] text-[#343844] dark:text-white">{value}</strong><span className="text-[7.5pt] text-blue-800/65 dark:text-blue-100/65">{label}</span></CardContent></Card>)}
         </div>
         <SectionHeading eyebrow="CAREER">核心经历</SectionHeading>
         <Job title="内控经理（部门负责人）" company="三旋食品供应链" period="2024.04 – 至今" lead="受邀加盟，从零组建内控部门，全面统筹集团内控体系搭建与审计职能建设，建立覆盖采购、生产、物流全链条的管控框架。" groups={[
@@ -141,7 +141,7 @@ export function Resume() {
           ].map(([title,company,period,description]) => <Card key={company} className="border-blue-900/10 bg-white/72 shadow-none dark:border-white/10 dark:bg-white/[.04]"><CardContent className="p-4"><div className="flex items-start justify-between gap-3"><div><h3 className="text-[10pt] font-bold text-slate-950 dark:text-white">{title} · {company}</h3><p className="mt-1.5 text-[8.2pt] leading-relaxed text-slate-500 dark:text-slate-400">{description}</p></div><Badge variant="outline" className="shrink-0 border-blue-700/20 text-[7pt] text-blue-800 dark:text-blue-200">{period}</Badge></div></CardContent></Card>)}
         </div>
 
-        <Card className="mt-5 overflow-hidden border-0 bg-gradient-to-br from-slate-950 via-blue-950 to-cyan-950 text-white shadow-xl shadow-blue-950/25">
+        <Card className="mt-5 overflow-hidden border-0 bg-gradient-to-br from-[#343844] via-[#26344a] to-[#17263d] text-white shadow-xl shadow-[#343844]/25">
           <CardHeader className="pb-2"><Badge className="w-fit bg-sky-400 text-slate-950">VALUE PROPOSITION</Badge><CardTitle className="pt-2 font-serif text-[18pt]">管理价值主张</CardTitle></CardHeader>
           <CardContent className="text-[9pt] leading-[1.75] text-white/75">以风险为导向、以数据为依据、以整改落地为结果，将审计从“发现问题”升级为“推动经营改善”的管理工具；同时通过制度、流程、系统与文化四位一体，构建可持续运行的企业治理能力。</CardContent>
         </Card>
