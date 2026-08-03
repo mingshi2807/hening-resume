@@ -343,7 +343,7 @@ body {
   color: var(--accent-cyan);
 }
 
-@media (max-width: 900px) {
+@media screen and (max-width: 900px) {
   .resume-document { padding-inline: .75rem; }
   .resume-page { width: 100%; height: auto; min-height: 297mm; grid-template-columns: 1fr; }
   .resume-sidebar { padding: 2rem; }
