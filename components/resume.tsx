@@ -4,36 +4,36 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-const qualifications = ["国际注册内部审计师（CIA）", "企业合规师", "ESG 注册分析师（高级）", "初级会计师"];
-const strengths = ["集团级内控与审计体系搭建", "IPO 上市合规与 ICFR", "年度及专项审计管理", "流程治理与数字化内控", "反舞弊调查与司法协同", "团队建设与知识管理"];
+const qualifications = ["Certified Internal Auditor (CIA)", "Corporate Compliance Professional", "Senior ESG Registered Analyst", "Junior Accountant"];
+const strengths = ["Group-wide internal control and audit systems", "IPO compliance and ICFR", "Annual and special-purpose audits", "Process governance and digital controls", "Anti-fraud investigations and legal coordination", "Team development and knowledge management"];
 const careerSteps = [
-  ["2024 – 至今", "集团内控负责人"],
-  ["2022 – 2024", "上市合规与风控建设"],
-  ["2019 – 2022", "审计与 ICFR 管理"],
-  ["2008 – 2019", "制造与审计专业积累"],
+  ["2024 – Present", "Head of Group Internal Control"],
+  ["2022 – 2024", "Listing Compliance & Risk Control"],
+  ["2019 – 2022", "Audit & ICFR Management"],
+  ["2008 – 2019", "Manufacturing & Audit Foundation"],
 ];
-const impactStats = [["90%+", "整改落地率"], ["1,000万+", "累计成本优化"], ["1,800+", "合规培训人次"], ["2 次", "IPO 合规筹备"]];
+const impactStats = [["90%+", "Remediation rate"], ["¥10M+", "Cost optimization"], ["1,800+", "Training attendees"], ["2", "IPO preparations"]];
 
 function Sidebar({ page = 1 }: { page?: number }) {
   return (
     <aside className="resume-sidebar relative overflow-hidden p-[11mm_8mm_8mm] text-white">
       <div className="absolute -right-20 -top-20 size-60 rounded-full bg-blue-400/20 blur-3xl" />
       <div className="relative">
-        <p className="mb-3 text-[8px] font-bold tracking-[.25em] text-[#8be9fd]">INTERNAL CONTROL · AUDIT · RISK</p>
-        <h1 className="font-serif text-[29pt] font-black tracking-[.12em]">何宁宁</h1>
-        <p className="mt-2 text-[11pt] font-medium tracking-[.22em] text-white/70">内控与审计负责人</p>
+        <p className="mb-2.5 text-[7px] font-bold tracking-[.2em] text-[#8be9fd]">INTERNAL CONTROL · AUDIT · RISK</p>
+        <h1 className="whitespace-nowrap font-serif text-[22pt] font-black tracking-[.035em]">Ningning He</h1>
+        <p className="mt-1.5 text-[8.4pt] font-medium tracking-[.09em] text-white/70">HEAD OF INTERNAL CONTROL & AUDIT</p>
         {page === 1 ? (
-          <div className="portrait-frame mt-7 overflow-hidden rounded-[1.5rem_4rem_1.5rem_4rem] border border-white/20 bg-white/5 p-1.5 shadow-2xl">
-            <Image src="/portrait.png" alt="何宁宁职业形象照" width={800} height={1000} priority className="h-[62mm] w-full rounded-[1.15rem_3.6rem_1.15rem_3.6rem] object-cover object-[48%_52%]" />
+          <div className="portrait-frame mt-5 overflow-hidden rounded-[1.5rem_4rem_1.5rem_4rem] border border-white/20 bg-white/5 p-1.5 shadow-2xl">
+            <Image src="/portrait.png" alt="Professional portrait of Ningning He" width={800} height={1000} priority className="h-[62mm] w-full rounded-[1.15rem_3.6rem_1.15rem_3.6rem] object-cover object-[48%_52%]" />
           </div>
         ) : page === 2 ? (
-          <SidebarPanel eyebrow="CAREER MAP" title="职业路径">
+          <SidebarPanel eyebrow="CAREER MAP" title="Career Path">
             <div className="career-track">
               {careerSteps.map(([period, role]) => <div key={period} className="career-step"><span>{period}</span><strong>{role}</strong></div>)}
             </div>
           </SidebarPanel>
         ) : (
-          <SidebarPanel eyebrow="IMPACT INDEX" title="成果索引">
+          <SidebarPanel eyebrow="IMPACT INDEX" title="Impact Index">
             <div className="grid grid-cols-2 gap-2">
               {impactStats.map(([value, label]) => <div key={label} className="impact-tile"><strong>{value}</strong><span>{label}</span></div>)}
             </div>
@@ -41,24 +41,24 @@ function Sidebar({ page = 1 }: { page?: number }) {
         )}
 
         {page === 1 && <>
-          <SideBlock icon={<Award />} title="专业资格" items={qualifications} />
-          <SideBlock icon={<ShieldCheck />} title="专业能力" items={strengths} />
-          <div className="mt-6 space-y-1.5 border-t border-white/15 pt-4 text-[9.4pt] text-white/72">
+          <SideBlock icon={<Award />} title="Qualifications" items={qualifications} />
+          <SideBlock icon={<ShieldCheck />} title="Expertise" items={strengths} />
+          <div className="mt-4 space-y-1 border-t border-white/15 pt-3 text-[7.7pt] text-white/72">
             <p className="flex items-center gap-2"><Phone className="size-3.5 text-[#86a4b9]" />182 2127 2093</p>
             <p className="flex items-center gap-2"><Mail className="size-3.5 text-[#86a4b9]" />381162061@qq.com</p>
-            <p className="flex items-center gap-2"><MapPin className="size-3.5 text-[#86a4b9]" />成都市武侯区</p>
+            <p className="flex items-center gap-2"><MapPin className="size-3.5 text-[#86a4b9]" />Wuhou District, Chengdu</p>
           </div>
         </>}
 
         {page === 2 && <>
-          <SideBlock icon={<Sparkles />} title="核心优势" items={["从 0 到 1 建设组织与体系", "跨部门推动复杂整改落地", "数据驱动审计与成本优化", "供应链、生产、研发全流程穿透", "重大舞弊案件独立调查"]} />
-          <SideBlock icon={<GraduationCap />} title="教育背景" items={["兰州理工大学", "化学工程与工艺 · 本科", "2004.09 – 2008.07"]} />
-          <SideBlock icon={<BriefcaseBusiness />} title="数字化工具" items={["Excel 高级分析", "SQL 基础", "Visio / SAP GRC", "OA / ERP 流程设计"]} />
+          <SideBlock icon={<Sparkles />} title="Core Strengths" items={["Built organizations and systems from zero", "Drove complex cross-functional remediation", "Data-driven audit and cost optimization", "End-to-end supply chain, production, and R&D reviews", "Independent investigation of major fraud cases"]} />
+          <SideBlock icon={<GraduationCap />} title="Education" items={["Lanzhou University of Technology", "B.Eng. in Chemical Engineering & Technology", "2004.09 – 2008.07"]} />
+          <SideBlock icon={<BriefcaseBusiness />} title="Digital Tools" items={["Advanced Excel analytics", "Basic SQL", "Visio / SAP GRC", "OA / ERP workflow design"]} />
         </>}
 
         {page === 3 && <>
-          <SideBlock icon={<Building2 />} title="行业经验" items={["食品供应链", "连锁零售", "生物制药", "会计师事务所", "制造业"]} />
-          <SideBlock icon={<Target />} title="管理方法" items={["风险导向与数据验证", "制度、流程、系统协同", "整改闭环与持续跟踪", "业务价值与合规平衡"]} />
+          <SideBlock icon={<Building2 />} title="Industry Experience" items={["Food supply chain", "Chain retail", "Biopharmaceuticals", "Public accounting", "Manufacturing"]} />
+          <SideBlock icon={<Target />} title="Management Approach" items={["Risk-led, data-validated decisions", "Policy, process, and system alignment", "Closed-loop remediation and follow-up", "Balance of business value and compliance"]} />
         </>}
       </div>
       <div className="page-marker"><span>RESUME · 2026</span><strong>{String(page).padStart(2, "0")} / 03</strong></div>
@@ -67,7 +67,7 @@ function Sidebar({ page = 1 }: { page?: number }) {
 }
 
 function SidebarPanel({ eyebrow, title, children }: { eyebrow: string; title: string; children: React.ReactNode }) {
-  return <section className="sidebar-panel mt-7">
+  return <section className="sidebar-panel mt-5">
     <p>{eyebrow}</p>
     <h2>{title}</h2>
     {children}
@@ -75,34 +75,34 @@ function SidebarPanel({ eyebrow, title, children }: { eyebrow: string; title: st
 }
 
 function SideBlock({ icon, title, items }: { icon: React.ReactNode; title: string; items: string[] }) {
-  return <div className="mt-6 border-t border-white/15 pt-4">
-    <h2 className="mb-3.5 flex items-center gap-2 text-[11pt] font-extrabold tracking-[.15em]"><span className="text-[#8be9fd] [&_svg]:size-4">{icon}</span>{title}</h2>
-    <ul className="space-y-2 text-[9.4pt] leading-relaxed text-white/78">{items.map((item) => <li key={item} className="flex gap-2"><span className="mt-[.55em] size-1.5 shrink-0 rounded-full border border-[#71899e]" />{item}</li>)}</ul>
+  return <div className="mt-4 border-t border-white/15 pt-3">
+    <h2 className="mb-2.5 flex items-center gap-2 text-[9.2pt] font-extrabold tracking-[.12em]"><span className="text-[#8be9fd] [&_svg]:size-3.5">{icon}</span>{title}</h2>
+    <ul className="space-y-1.5 text-[7.8pt] leading-[1.4] text-white/78">{items.map((item) => <li key={item} className="flex gap-2"><span className="mt-[.55em] size-1 shrink-0 rounded-full border border-[#71899e]" />{item}</li>)}</ul>
   </div>;
 }
 
 function SectionHeading({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) {
-  return <div className="section-heading mb-5">
-    <Badge variant="outline" className="mb-2 border-blue-600/25 bg-blue-500/7 text-[7px] tracking-[.22em] text-blue-800 dark:border-[#8be9fd]/30 dark:bg-[#8be9fd]/8 dark:text-[#8be9fd]">{eyebrow}</Badge>
-    <h2 className="font-serif text-[20pt] font-black leading-tight tracking-[.02em] text-[#343844] dark:text-sky-50">{children}</h2>
+  return <div className="section-heading mb-4">
+    <Badge variant="outline" className="mb-1.5 border-blue-600/25 bg-blue-500/7 text-[6.5px] tracking-[.2em] text-blue-800 dark:border-[#8be9fd]/30 dark:bg-[#8be9fd]/8 dark:text-[#8be9fd]">{eyebrow}</Badge>
+    <h2 className="font-serif text-[17.5pt] font-black leading-tight tracking-[.01em] text-[#343844] dark:text-sky-50">{children}</h2>
   </div>;
 }
 
 function Job({ title, company, period, lead, highlights = [], groups, compact = false }: { title: string; company: string; period: string; lead: string; highlights?: string[]; groups: { title: string; bullets: string[] }[]; compact?: boolean }) {
   return <Card className="job-card border-blue-900/10 bg-white/78 dark:border-[#56627a]">
-    <CardHeader className={compact ? "p-4 pb-2.5" : "p-5 pb-3"}>
+    <CardHeader className={compact ? "p-3 pb-2" : "p-4 pb-2.5"}>
       <div className="flex items-start justify-between gap-4">
-        <div className="min-w-0"><CardTitle className="text-[13pt] leading-[1.3] text-slate-950 dark:text-white">{title}</CardTitle><p className="mt-1.5 text-[9pt] font-semibold text-blue-700 dark:text-[#8be9fd]">{company}</p></div>
-        <Badge variant="secondary" className="w-[30mm] shrink-0 justify-center bg-blue-50 text-center text-[7.5pt] font-semibold tabular-nums text-blue-800 dark:bg-[#71899e]/12 dark:text-[#a9bac8]">{period}</Badge>
+        <div className="min-w-0"><CardTitle className="text-[10.5pt] leading-[1.2] text-slate-950 dark:text-white">{title}</CardTitle><p className="mt-1 text-[7.6pt] font-semibold text-blue-700 dark:text-[#8be9fd]">{company}</p></div>
+        <Badge variant="secondary" className="w-[28mm] shrink-0 justify-center bg-blue-50 text-center text-[6.5pt] font-semibold tabular-nums text-blue-800 dark:bg-[#71899e]/12 dark:text-[#a9bac8]">{period}</Badge>
       </div>
     </CardHeader>
-    <CardContent className={compact ? "space-y-2.5 p-4 pt-0" : "space-y-3 p-5 pt-0"}>
-      <p className={`rounded-lg border-l-2 border-blue-500 bg-blue-500/[.055] px-3 text-[8.7pt] font-medium tracking-[-.005em] text-slate-600 dark:text-[#c7ccd8] ${compact ? "py-1.5 leading-[1.58]" : "py-2 leading-[1.68]"}`}>{lead}</p>
-      {highlights.length > 0 && <div className="flex flex-wrap gap-1.5">{highlights.map((highlight) => <span key={highlight} className="outcome-chip">{highlight}</span>)}</div>}
+    <CardContent className={compact ? "space-y-1.5 p-3 pt-0" : "space-y-2 p-4 pt-0"}>
+      <p className={`rounded-lg border-l-2 border-blue-500 bg-blue-500/[.055] px-2.5 text-[7.2pt] font-medium tracking-[-.005em] text-slate-600 dark:text-[#c7ccd8] ${compact ? "py-1 leading-[1.4]" : "py-1.5 leading-[1.45]"}`}>{lead}</p>
+      {highlights.length > 0 && <div className="flex flex-wrap gap-1">{highlights.map((highlight) => <span key={highlight} className="outcome-chip">{highlight}</span>)}</div>}
       {groups.map((group, index) => <div key={group.title}>
-        {index > 0 && <Separator className={`${compact ? "mb-2" : "mb-3"} bg-slate-200/70 dark:bg-white/10`} />}
-        <h4 className={`${compact ? "mb-1.5" : "mb-2"} flex items-center gap-2 text-[9.3pt] font-bold text-slate-800 dark:text-slate-100`}><CheckCircle2 className="size-3.5 text-blue-600 dark:text-[#86a4b9]" />{group.title}</h4>
-        <ul className={`${compact ? "space-y-1 leading-[1.52]" : "space-y-1.5 leading-[1.62]"} pl-5 text-[8.35pt] tracking-[-.005em] text-slate-600 dark:text-[#c7ccd8]`}>{group.bullets.map((bullet) => <li key={bullet} className="list-disc marker:text-sky-500 dark:marker:text-[#71899e]">{bullet}</li>)}</ul>
+        {index > 0 && <Separator className={`${compact ? "mb-1.5" : "mb-2"} bg-slate-200/70 dark:bg-white/10`} />}
+        <h4 className={`${compact ? "mb-1" : "mb-1.5"} flex items-center gap-1.5 text-[7.8pt] font-bold text-slate-800 dark:text-slate-100`}><CheckCircle2 className="size-3 text-blue-600 dark:text-[#86a4b9]" />{group.title}</h4>
+        <ul className={`${compact ? "space-y-0.5 leading-[1.35]" : "space-y-1 leading-[1.4]"} pl-4 text-[6.85pt] tracking-[-.005em] text-slate-600 dark:text-[#c7ccd8]`}>{group.bullets.map((bullet) => <li key={bullet} className="list-disc marker:text-sky-500 dark:marker:text-[#71899e]">{bullet}</li>)}</ul>
       </div>)}
     </CardContent>
   </Card>;
@@ -113,19 +113,19 @@ export function Resume() {
     <section className="resume-page grid grid-cols-[34.5%_65.5%]">
       <Sidebar page={1} />
       <article className="resume-content p-[12mm_10mm_8mm]">
-        <SectionHeading eyebrow="ABOUT ME">职业概述</SectionHeading>
-        <div className="space-y-3 text-[9pt] leading-[1.8] tracking-[-.005em] text-slate-600 dark:text-[#c7ccd8]">
-          <p>拥有 15 年跨行业（供应链、制药、连锁零售）全链路风控经验，具备从战略风控架构设计到全流程审计落地的完整闭环能力。曾主导两轮企业上市合规筹备，从零组建并领导内控审计部门，全面负责集团内控体系搭建、审计制度建立及团队管理。</p>
-          <p>以“发现问题 → 建章立制 → 推动变革 → 体系化运行”的闭环方式推动管理升级，累计优化成本超千万元，整改落地率持续保持 90% 以上，深刻理解上市公司治理规范与监管逻辑。</p>
+        <SectionHeading eyebrow="ABOUT ME">Professional Profile</SectionHeading>
+        <div className="space-y-2 text-[7.8pt] leading-[1.55] tracking-[-.005em] text-slate-600 dark:text-[#c7ccd8]">
+          <p>15 years of end-to-end risk control experience across supply chain, pharmaceuticals, and chain retail, spanning strategic risk architecture through full-cycle audit execution. Led two corporate listing compliance preparations and built and managed internal control and audit departments from the ground up, with full responsibility for group control systems, audit policies, and team leadership.</p>
+          <p>Drive management improvement through a closed loop of “identify issues → establish policies → enable change → institutionalize operations.” Delivered more than ¥10 million in cumulative cost optimization, sustained a remediation rate above 90%, and developed a deep understanding of listed-company governance standards and regulatory logic.</p>
         </div>
-        <div className="my-5 grid grid-cols-3 gap-2">
-          {[['15 年','跨行业经验'],['2 轮','IPO 合规筹备'],['90%+','整改落地率']].map(([value,label]) => <Card key={label} className="metric-card bg-gradient-to-br from-[#eaf2f8] via-[#f5f9fb] to-white shadow-none dark:border-[#56627a] dark:from-[#343746] dark:via-[#2e303d] dark:to-[#282a36]"><CardContent className="p-3 text-center"><strong className="block text-[15pt] text-[#343844] dark:text-white">{value}</strong><span className="text-[7.5pt] text-blue-800/65 dark:text-blue-100/75">{label}</span></CardContent></Card>)}
+        <div className="my-4 grid grid-cols-3 gap-2">
+          {[["15 Years","Cross-industry experience"],["2 Rounds","IPO compliance preparation"],["90%+","Remediation rate"]].map(([value,label]) => <Card key={label} className="metric-card bg-gradient-to-br from-[#eaf2f8] via-[#f5f9fb] to-white shadow-none dark:border-[#56627a] dark:from-[#343746] dark:via-[#2e303d] dark:to-[#282a36]"><CardContent className="p-3 text-center"><strong className="block text-[15pt] text-[#343844] dark:text-white">{value}</strong><span className="text-[7.5pt] text-blue-800/65 dark:text-blue-100/75">{label}</span></CardContent></Card>)}
         </div>
-        <SectionHeading eyebrow="CAREER">核心经历</SectionHeading>
-        <Job title="内控经理（部门负责人）" company="三旋食品供应链" period="2024.04 – 至今" lead="受邀加盟，从零组建内控部门，全面统筹集团内控体系搭建与审计职能建设，建立覆盖采购、生产、物流全链条的管控框架。" highlights={["50+ 项隐患整改", "150 万元年化降本", "审批效率 +30%"]} groups={[
-          {title:'体系搭建与战略风控', bullets:['主导搭建“审计 + 内控”双轨管理体系，从治理层、管理层到执行层系统化设计控制框架。','引入动态风险评估机制，将风险识别前移至“事中预警”，推动完成 50 余项重大隐患整改。']},
-          {title:'审计管理与业务赋能', bullets:['统筹财务、运营、生产、研发及离任等多类型审计，累计推动整改近 30 项重大风险。','物流专项审计推动物流模式由自营转三方，年化降本 150 万元。','生产全链路审计发现 20 余项风险，为生产标准化与质量提升提供决策支撑。']},
-          {title:'流程治理与系统建设', bullets:['主导 OA 审批流程重构，审批效率提升 30%，供应链中断风险降低 20%。','协同搭建 ERP 采购审批模块，实现关键控制节点线上化与数据留痕。']}
+        <SectionHeading eyebrow="CAREER">Professional Experience</SectionHeading>
+        <Job title="Internal Control Manager (Department Head)" company="Sanxuan Food Supply Chain" period="2024.04 – Present" lead="Recruited to establish the internal control department from the ground up, oversee the group’s control and audit functions, and build an end-to-end framework spanning procurement, production, and logistics." highlights={["50+ major issues remediated", "¥1.5M annual savings", "Approval efficiency +30%"]} groups={[
+          {title:"System Development & Strategic Risk Control", bullets:["Built a dual-track audit and internal control management system, designing the control framework across governance, management, and execution levels.","Introduced dynamic risk assessment to shift identification toward real-time warning and drove remediation of more than 50 major issues."]},
+          {title:"Audit Management & Business Enablement", bullets:["Directed financial, operational, production, R&D, and exit audits, driving remediation of nearly 30 major risks.","A logistics audit supported a shift from self-operated to third-party logistics, generating ¥1.5 million in annual savings.","An end-to-end production audit identified more than 20 risks and informed production standardization and quality improvements."]},
+          {title:"Process Governance & Systems", bullets:["Led OA approval workflow redesign, increasing approval efficiency by 30% and reducing supply-chain disruption risk by 20%.","Co-developed the ERP procurement approval module, digitizing key controls and preserving audit trails."]}
         ]} />
       </article>
     </section>
@@ -133,14 +133,14 @@ export function Resume() {
     <section className="resume-page grid grid-cols-[34.5%_65.5%]">
       <Sidebar page={2} />
       <article className="resume-content p-[12mm_10mm_8mm]">
-        <SectionHeading eyebrow="EXPERIENCE">核心经历（续）</SectionHeading>
-        <div className="space-y-4">
-          <Job compact title="内控经理（续）" company="三旋食品供应链" period="2024.04 – 至今" lead="统筹公司法务合规事务并建立反舞弊治理机制，将风险整改沉淀为可持续运行的管理能力。" highlights={["潜在损失规避 100 万+", "反舞弊机制落地"]} groups={[{title:'法务合规与反舞弊治理', bullets:['建立合同审阅与法律风险预警机制，拟定廉洁协议等标准模板。','主导备用金舞弊、职务侵占等案件调查，通过流程加固规避潜在损失超百万元。','对接中国反舞弊联盟，引入行业实践并组织全员合规培训考核。']}]} />
-          <Job compact title="内控主管（部门负责人）" company="四川百茶百道" period="2022.04 – 2024.04" lead="全面负责覆盖全业务链条及控股子公司的财务合规审计；港股上市筹备期间，从零搭建内控部门并规划风险管理体系。" highlights={["18 次飞行检查", "100+ 门店走访", "1,800+ 人次培训"]} groups={[
-            {title:'审计管理与业务价值创造', bullets:['完成飞行检查 18 次、专项审计 6 项，走访供应商 27 家、门店超 100 家，出具审计报告 19 份。','推动运营有效性提升 115%，成本节约超 25%，采购成本降低 8%–50%。']},
-            {title:'上市合规与团队建设', bullets:['搭建覆盖 10 余个业务中心的风控体系，制定控制点 208 个、风险点 335 个。','参与优化 20 余项管理制度、150 余项审批流程，配合外部合规审查与尽职调查。','统筹合规培训覆盖 1,800+ 人次，持续推广内控廉洁文化。']}
+        <SectionHeading eyebrow="EXPERIENCE">Professional Experience (Continued)</SectionHeading>
+        <div className="space-y-3">
+          <Job compact title="Internal Control Manager (Continued)" company="Sanxuan Food Supply Chain" period="2024.04 – Present" lead="Oversaw legal and compliance matters and established anti-fraud governance, converting risk remediation into sustainable management capability." highlights={["¥1M+ potential losses avoided", "Anti-fraud framework established"]} groups={[{title:"Legal Compliance & Anti-Fraud Governance", bullets:["Established contract review and legal risk warning mechanisms and drafted standard templates including integrity agreements.","Led investigations into petty-cash fraud and employee embezzlement, strengthening processes to avoid more than ¥1 million in potential losses.","Engaged the China Enterprise Anti-Fraud Alliance, introduced industry practices, and organized company-wide compliance training and assessment."]}]} />
+          <Job compact title="Internal Control Supervisor (Department Head)" company="Sichuan Baicha Baidao" period="2022.04 – 2024.04" lead="Led financial compliance audits across the full business chain and controlled subsidiaries; built the internal control department and planned the risk management system during Hong Kong listing preparation." highlights={["18 unannounced inspections", "100+ stores visited", "1,800+ trainees"]} groups={[
+            {title:"Audit Management & Business Value", bullets:["Completed 18 unannounced inspections and 6 special audits, visited 27 suppliers and more than 100 stores, and issued 19 audit reports.","Improved operational effectiveness by 115%, reduced costs by more than 25%, and lowered procurement costs by 8%–50%."]},
+            {title:"Listing Compliance & Team Development", bullets:["Built a risk control system covering more than 10 business centers, defining 208 control points and 335 risk points.","Helped optimize more than 20 management policies and 150 approval workflows and supported external compliance reviews and due diligence.","Coordinated compliance training for more than 1,800 attendees and continuously promoted a culture of control and integrity."]}
           ]} />
-          <Job compact title="审计主管" company="成都苑东生物制药" period="2019.04 – 2022.04" lead="围绕上市合规与公司治理，协助股改及治理体系搭建，主导内控制度建设并通过监管审核，独立完成年度内控评价与资本市场尽调支持。" highlights={["监管审核通过", "年度内控评价", "新三板尽调"]} groups={[{title:'上市合规与公司治理', bullets:['协助股改及治理体系搭建，主导内控制度建设并通过监管审核。','独立完成年度内控评价报告。','配合新三板尽调，参与问询函回复及路演材料制作。','搭建采购价格库与招投标数据库，支撑成本核算合规。']}]} />
+          <Job compact title="Audit Supervisor" company="Chengdu Easton Biopharmaceuticals" period="2019.04 – 2022.04" lead="Supported listing compliance and corporate governance, assisted with shareholding reform and governance design, led internal control policy development through regulatory review, and independently delivered annual control evaluations and capital-market due diligence support." highlights={["Passed regulatory review", "Annual control evaluation", "NEEQ due diligence"]} groups={[{title:"Listing Compliance & Corporate Governance", bullets:["Supported shareholding reform and governance system development, led internal control policy design, and passed regulatory review.","Independently completed the annual internal control evaluation report.","Supported NEEQ due diligence and contributed to inquiry responses and roadshow materials.","Built procurement price and tender databases to support compliant cost accounting."]}]} />
         </div>
       </article>
     </section>
@@ -148,24 +148,24 @@ export function Resume() {
     <section className="resume-page grid grid-cols-[34.5%_65.5%]">
       <Sidebar page={3} />
       <article className="resume-content p-[10mm_10mm_12mm]">
-        <SectionHeading eyebrow="EXPERIENCE">核心经历（续）</SectionHeading>
-        <Job compact title="审计主管（续）" company="成都苑东生物制药" period="2019.04 – 2022.04" lead="以风险为导向统筹全面审计、财务报告内控与专项合规审计，推动问题整改闭环并保障关键治理事项合规。" highlights={["关键流程全覆盖", "0 重大缺陷", "专项合规审计"]} groups={[
-          {title:'全面审计实施', bullets:['统筹采购、仓储、IT、经济责任及离任审计，出具审计报告并持续跟踪整改落地。','开展生产、研发、营销等管理审计，识别研发项目执行偏差并推动系统性改进。']},
-          {title:'财务审计与外部协同', bullets:['主导年度 ICFR 测试及有效性评价。','对接外部审计，确保财报及内控审计无重大缺陷。','牵头募集资金、关联交易、对外担保及信息披露等专项合规审计。']}
+        <SectionHeading eyebrow="EXPERIENCE">Professional Experience (Continued)</SectionHeading>
+        <Job compact title="Audit Supervisor (Continued)" company="Chengdu Easton Biopharmaceuticals" period="2019.04 – 2022.04" lead="Directed comprehensive, financial reporting control, and special compliance audits using a risk-led approach, closed the remediation loop, and safeguarded compliance across key governance matters." highlights={["Full key-process coverage", "0 material deficiencies", "Special compliance audits"]} groups={[
+          {title:"Comprehensive Audit Execution", bullets:["Directed procurement, warehousing, IT, economic responsibility, and exit audits; issued reports and continuously tracked remediation through completion.","Conducted management audits across production, R&D, and marketing, identified deviations in R&D project execution, and drove systemic improvements."]},
+          {title:"Financial Audit & External Coordination", bullets:["Led annual ICFR testing and effectiveness evaluation.","Coordinated with external auditors to ensure no material deficiencies in financial statement or internal control audits.","Led special compliance audits covering proceeds, related-party transactions, external guarantees, and information disclosure."]}
         ]} />
 
-        <SectionHeading eyebrow="EARLY CAREER">早期经历</SectionHeading>
+        <SectionHeading eyebrow="EARLY CAREER">Early Career</SectionHeading>
         <div className="space-y-2">
           {[
-            ['审计专员','上海剪刀石头布家居','2014.06 – 2017.06','通过售后服务审计发现并整改违规收费，优化工厂订单分类标准，提升生产效率。'],
-            ['审计专员','上海华申会计师事务所','2012.03 – 2013.03','参与多项外部审计项目，负责审计程序执行、底稿编制及审计建议提出。'],
-            ['技术员','东方电气峨眉半导体材料厂','2008.07 – 2012.03','负责多晶硅提纯环节的技术支持和异常排查，积累制造业现场流程与质量管理经验。']
-          ].map(([title,company,period,description]) => <Card key={company} className="career-card border-blue-900/10 bg-white/72 shadow-none dark:border-[#56627a]"><CardContent className="p-3.5"><div className="flex items-start justify-between gap-3"><div className="min-w-0"><h3 className="text-[10pt] font-bold leading-[1.35] text-slate-950 dark:text-white">{title} · {company}</h3><p className="mt-1 text-[8.2pt] leading-[1.6] tracking-[-.005em] text-slate-500 dark:text-[#bfc5d2]">{description}</p></div><Badge variant="outline" className="w-[30mm] shrink-0 justify-center border-blue-700/20 text-center text-[7pt] tabular-nums text-blue-800 dark:border-[#71899e]/35 dark:text-[#a9bac8]">{period}</Badge></div></CardContent></Card>)}
+            ["Audit Specialist","Shanghai Scissors Stone Cloth Home Furnishings","2014.06 – 2017.06","Identified and corrected improper charges through after-sales service audits, optimized factory order classification standards, and improved production efficiency."],
+            ["Audit Specialist","Shanghai Huashen CPA Firm","2012.03 – 2013.03","Participated in multiple external audit engagements, executing audit procedures, preparing working papers, and developing audit recommendations."],
+            ["Technician","Dongfang Electric Emei Semiconductor Materials Factory","2008.07 – 2012.03","Provided technical support and troubleshooting for polysilicon purification, building hands-on manufacturing process and quality management experience."]
+          ].map(([title,company,period,description]) => <Card key={company} className="career-card border-blue-900/10 bg-white/72 shadow-none dark:border-[#56627a]"><CardContent className="p-2.5"><div className="flex items-start justify-between gap-2"><div className="min-w-0"><h3 className="text-[8.2pt] font-bold leading-[1.25] text-slate-950 dark:text-white">{title} · {company}</h3><p className="mt-0.5 text-[6.7pt] leading-[1.35] tracking-[-.005em] text-slate-500 dark:text-[#bfc5d2]">{description}</p></div><Badge variant="outline" className="w-[27mm] shrink-0 justify-center border-blue-700/20 text-center text-[6pt] tabular-nums text-blue-800 dark:border-[#71899e]/35 dark:text-[#a9bac8]">{period}</Badge></div></CardContent></Card>)}
         </div>
 
-        <Card className="value-card mt-4 overflow-hidden border-0 bg-gradient-to-br from-[#343844] via-[#26344a] to-[#17263d] text-white shadow-xl shadow-[#343844]/25">
-          <CardHeader className="p-4 pb-2"><Badge className="w-fit bg-[#8be9fd] text-slate-950">VALUE PROPOSITION</Badge><CardTitle className="pt-1.5 font-serif text-[18pt]">管理价值主张</CardTitle></CardHeader>
-          <CardContent className="p-4 pt-0 text-[9pt] leading-[1.65] text-white/75">以风险为导向、以数据为依据、以整改落地为结果，将审计从“发现问题”升级为“推动经营改善”的管理工具；同时通过制度、流程、系统与文化四位一体，构建可持续运行的企业治理能力。</CardContent>
+        <Card className="value-card mt-3 overflow-hidden border-0 bg-gradient-to-br from-[#343844] via-[#26344a] to-[#17263d] text-white shadow-xl shadow-[#343844]/25">
+          <CardHeader className="p-3 pb-1.5"><Badge className="w-fit bg-[#8be9fd] text-[6.5pt] text-slate-950">VALUE PROPOSITION</Badge><CardTitle className="pt-1 font-serif text-[15pt]">Management Value Proposition</CardTitle></CardHeader>
+          <CardContent className="p-3 pt-0 text-[7.2pt] leading-[1.4] text-white/75">Use risk as the compass, data as the evidence, and implemented remediation as the result—elevating audit from an issue-finding function to a management tool that improves operations. Integrate policies, processes, systems, and culture to build sustainable corporate governance capability.</CardContent>
         </Card>
       </article>
     </section>
