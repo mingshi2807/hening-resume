@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 
 export default function MingShiResumePage() {
   return (
-    <>
+    <div className="ming-resume-shell">
       <MingResumeToolbar />
       <MingResume />
-    </>
+    </div>
   );
 }

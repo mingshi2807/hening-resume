@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Award, BookOpen, Cpu, GraduationCap, Linkedin, MapPin, Network, Users } from "lucide-react";
+import { Linkedin, MapPin } from "lucide-react";
 
 const standards = [
   "ISO 15118-2 / -3 / -8 / -20 + AMD1",
@@ -20,26 +20,28 @@ function PageMarker({ page }: { page: number }) {
   return <div className="page-marker"><span>MING SHI · 2026</span><strong>{String(page).padStart(2, "0")} / 03</strong></div>;
 }
 
-function SideSection({ title, icon, items }: { title: string; icon: React.ReactNode; items: string[] }) {
+function SideSection({ title, items }: { title: string; items: string[] }) {
   return <section className="ming-side-section">
-    <h2><span>{icon}</span>{title}</h2>
+    <h2>{title}</h2>
     <ul>{items.map((item) => <li key={item}>{item}</li>)}</ul>
   </section>;
 }
 
 function Sidebar({ page }: { page: number }) {
   return <aside className="ming-sidebar relative overflow-hidden text-white">
-    <div className="relative z-1">
+    <div className="ming-sidebar-inner">
+      <div className="ming-identity">
       <p className="ming-overline">EMOBILITY ・ ENERGY ・SOFTWARE-DEFINED CHARGING TECHNO</p>
       {page === 1 && <div className="ming-photo-frame">
-        <Image src="/ming-transparent.png" alt="Ming Shi" width={180} height={180} priority />
+        <Image src="/ming-transparent.png" alt="Ming Shi" width={180} height={180} unoptimized priority />
       </div>}
-      <h1>Ming Shi</h1>
+      {page === 1 ? <h1>Ming Shi</h1> : <p className="ming-name">Ming Shi</p>}
       <p className="ming-role">SOFTWARE &amp; SYSTEM ARCHITECT<br />V2G ENGINEERING LEADER</p>
+      </div>
       {page === 1 && <>
         <div className="ming-contact">
           <p><MapPin />Versailles, Île-de-France, France</p>
-          <p><Linkedin />linkedin.com/in/ming-shi-a7a92167</p>
+          <a href="https://www.linkedin.com/in/ming-shi-a7a92167" target="_blank" rel="noreferrer"><Linkedin />linkedin.com/in/ming-shi-a7a92167</a>
         </div>
         <div className="ming-metrics">
           <div><strong>15+</strong><span>years engineering</span></div>
@@ -47,27 +49,26 @@ function Sidebar({ page }: { page: number }) {
           <div><strong>30</strong><span>scientific publications</span></div>
           <div><strong>20</strong><span>industrial accounts trained</span></div>
         </div>
-        <SideSection title="Core Standards" icon={<Network />} items={standards} />
+        <SideSection title="Core Standards" items={standards} />
       </>}
       {page === 2 && <>
-        <SideSection title="Software & Test Stack" icon={<Cpu />} items={platforms} />
-        <SideSection title="Selected Ecosystem" icon={<Users />} items={["Renault Group", "Stellantis · Trialog", "TotalEnergies", "Hubject · Gireve · Thales", "EDF · Enedis · Clem", "Pionix · EVerest", "Up&Charge · Sancev · dcbel"]} />
-        <SideSection title="Hardware Environment" icon={<Cpu />} items={["ChargeBridge · ChargeByte · EvaCharge", "EcoG · Codico Whitebeet / Redbeet", "QCA Qualcomm PLC modems", "Siemens · Linky TIC · Analog Devices metering", "ABB · Finder · Schneider power devices", "Sensors: zero crossing, PQ, energy monitoring"]} />
+        <SideSection title="Software & Test Stack" items={platforms} />
+        <SideSection title="Selected Ecosystem" items={["Renault Group", "Stellantis · Trialog", "TotalEnergies", "Hubject · Gireve · Thales", "EDF · Enedis · Clem", "Pionix · EVerest", "Up&Charge · Sancev · dcbel"]} />
+        <SideSection title="Hardware Environment" items={["ChargeBridge · ChargeByte · EvaCharge", "EcoG · Codico Whitebeet / Redbeet", "QCA Qualcomm PLC modems", "Siemens · Linky TIC · Analog Devices metering", "ABB · Finder · Schneider power devices", "Sensors: zero crossing, PQ, energy monitoring"]} />
       </>}
       {page === 3 && <>
-        <SideSection title="Memberships" icon={<Users />} items={memberships} />
-        <SideSection title="Education" icon={<GraduationCap />} items={["PhD · Paris-Saclay University · 2008–2012", "Electronics, nanotechnology & numerical simulation", "MSc Physics · ENS Paris / Paris-Saclay University · 2006–2008"]} />
-        <SideSection title="Knowledge Output" icon={<BookOpen />} items={["30 scientific publications", "1 technical book", "1 patent", "5 software deposits with APP France"]} />
-        <SideSection title="Languages" icon={<Award />} items={["Chinese", "French", "English"]} />
+        <SideSection title="Memberships" items={memberships} />
+        <SideSection title="Education" items={["PhD · Paris-Saclay University · 2008–2012", "Electronics, nanotechnology & numerical simulation", "MSc Physics · ENS Paris / Paris-Saclay University · 2006–2008"]} />
+        <SideSection title="Knowledge Output" items={["30 scientific publications", "1 technical book", "1 patent", "5 software deposits with APP France"]} />
+        <SideSection title="Languages" items={["Chinese", "French", "English"]} />
       </>}
     </div>
     <PageMarker page={page} />
   </aside>;
 }
 
-function SectionHeading({ kicker, children }: { kicker: string; children: React.ReactNode }) {
+function SectionHeading({ children }: { children: React.ReactNode }) {
   return <header className="ming-section-heading">
-    <span>{kicker}</span>
     <h2>{children}</h2>
   </header>;
 }
@@ -84,11 +85,11 @@ function Bullets({ items }: { items: string[] }) {
 }
 
 export function MingResume() {
-  return <main className="ming-document space-y-8 print:space-y-0">
+  return <main id="ming-resume" className="ming-document" aria-label="Ming Shi resume">
     <section className="resume-page ming-page grid grid-cols-[29%_71%]">
       <Sidebar page={1} />
       <article className="resume-content ming-content">
-        <SectionHeading kicker="PROFILE">eMobility Software, Systems &amp; V2G Architect</SectionHeading>
+        <SectionHeading>eMobility Software, Systems &amp; V2G Architect</SectionHeading>
         <p className="ming-summary">Software and system architect, team manager, and technical program lead delivering interoperable EV charging, V2G, energy management system (EMS), and certification solutions from embedded controllers to cloud backends. Combines standards expertise, product architecture, customer delivery, laboratory validation, and technical-commercial leadership across automotive, charging, and energy ecosystems.</p>
 
         <div className="ming-highlight-row">
@@ -98,7 +99,7 @@ export function MingResume() {
         </div>
 
         <section className="ming-career-panel">
-          <SectionHeading kicker="EXPERIENCE">Career Progression</SectionHeading>
+          <SectionHeading>Career Progression</SectionHeading>
           <div className="ming-career-grid">
             <div><strong>MINATEC Grenoble</strong><span>Postdoctoral Researcher</span></div>
             <div><strong>STMicroelectronics</strong><span>Power Electronics Design</span></div>
@@ -110,7 +111,7 @@ export function MingResume() {
           </div>
         </section>
 
-        <SectionHeading kicker="MAJOR IMPACT">Renault V2G &amp; Grid-Code Program</SectionHeading>
+        <SectionHeading>Renault V2G &amp; Grid-Code Program</SectionHeading>
         <Feature title="Three-Year Technical Partnership">
           <Bullets items={[
             "Worked closely with Renault for three years on V2G integration testing, NC RfG certification readiness, priority control solutions, standardized interoperability, and end-to-end validation with Renault 5 and Scenic platforms.",
@@ -128,7 +129,7 @@ export function MingResume() {
           ]} />
         </Feature>
 
-        <SectionHeading kicker="ENGINEERING METHOD">Agentic &amp; Human-Validated Delivery</SectionHeading>
+        <SectionHeading>Agentic &amp; Human-Validated Delivery</SectionHeading>
         <p className="ming-note">Integrates agentic workflows, harness engineering, loop and graph orchestration, plus Human-in-the-Loop expert validation to accelerate specifications, implementation, testing, evidence capture, and standards traceability.</p>
 
       </article>
@@ -137,7 +138,7 @@ export function MingResume() {
     <section className="resume-page ming-page grid grid-cols-[29%_71%]">
       <Sidebar page={2} />
       <article className="resume-content ming-content">
-        <SectionHeading kicker="SELECTED DELIVERY">Customer Software Portfolio</SectionHeading>
+        <SectionHeading>Customer Software Portfolio</SectionHeading>
         <div className="ming-two-col">
           <Feature title="Stellantis / Trialog">
             <Bullets items={["ISO 15118-2 / -20 communication stacks.", "HEMS based on EEBUS plus an OCPP local controller."]} />
@@ -159,7 +160,7 @@ export function MingResume() {
           </Feature>
         </div>
 
-        <SectionHeading kicker="INTEROPERABILITY">Demonstrations, PlugFests &amp; Testivals</SectionHeading>
+        <SectionHeading>Demonstrations, PlugFests &amp; Testivals</SectionHeading>
         <div className="ming-event-list">
           <div><strong>CharIN Testival</strong><span>Hosted the event; later participated with EVSE-emulator and advanced test tooling.</span></div>
           <div><strong>Vector Symposium</strong><span>Demonstrated interoperability between the VEDECOM / Renault proprietary stack and Vector CANoe.</span></div>
@@ -175,7 +176,7 @@ export function MingResume() {
     <section className="resume-page ming-page grid grid-cols-[29%_71%]">
       <Sidebar page={3} />
       <article className="resume-content ming-content">
-        <SectionHeading kicker="MOBIXLAB">Test Center &amp; Certification Readiness</SectionHeading>
+        <SectionHeading>Test Center &amp; Certification Readiness</SectionHeading>
         <Feature title="Interoperability &amp; Pre-Certification Platform">
           <Bullets items={[
             "Built and operated realistic, end-to-end validation capabilities covering EVs, EVSEs, CSMSs, HEMSs, energy assets, protocol emulators, and digital services.",
@@ -184,7 +185,7 @@ export function MingResume() {
           ]} />
         </Feature>
 
-        <SectionHeading kicker="LEADERSHIP">Team, Delivery &amp; Commercial Impact</SectionHeading>
+        <SectionHeading>Team, Delivery &amp; Commercial Impact</SectionHeading>
         <div className="ming-two-col">
           <Feature title="Engineering Leadership">
             <Bullets items={["Workforce planning, project delivery, technical roadmap ownership, and team-performance management in standards-led R&D environments.", "Translation of normative requirements into architectures, specifications, implementation plans, system recipes, and evidence-backed validation."]} />
@@ -194,18 +195,17 @@ export function MingResume() {
           </Feature>
         </div>
 
-        <SectionHeading kicker="TRAINING">Standards Enablement</SectionHeading>
+        <SectionHeading>Standards Enablement</SectionHeading>
         <Feature title="Content Creator, Coach &amp; Instructor">
           <p>Designed and delivered training on IEC 61851-1, ISO 15118-3 / -2 / -20 / -4, and OCPP for 20 major industrial accounts spanning charging infrastructure, mobility services, automotive, and energy stakeholders.</p>
         </Feature>
 
-        <SectionHeading kicker="TECHNICAL BREADTH">Systems &amp; Hardware Integration</SectionHeading>
+        <SectionHeading>Systems &amp; Hardware Integration</SectionHeading>
         <div className="ming-compact-grid">
           <span>Embedded Linux / ARM</span><span>Bare-metal MCUs</span><span>PLC modems</span><span>CAN architecture</span><span>Power electronics</span><span>Smart metering</span><span>Power quality sensing</span><span>EVSE enclosures</span><span>Cloud / edge APIs</span><span>OTA lifecycle</span><span>Cybersecurity / PKI</span><span>Field commissioning</span>
         </div>
 
         <div className="ming-final-statement">
-          <span>VALUE PROPOSITION</span>
           <h2>From evolving standards to interoperable products.</h2>
           <p>Connects regulation, protocol engineering, embedded systems, cloud services, laboratory evidence, and customer delivery—turning complex V2G and smart-charging requirements into reusable software, validated integrations, and market-ready demonstrations.</p>
         </div>

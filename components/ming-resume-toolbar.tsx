@@ -40,19 +40,19 @@ export function MingResumeToolbar() {
   }
 
   return (
-    <div className="resume-toolbar print:hidden sticky top-3 z-50 mx-auto mb-5 flex w-[min(210mm,calc(100%-1.5rem))] items-center justify-between rounded-xl border px-4 py-2 text-white backdrop-blur-2xl">
+    <nav className="ming-toolbar print:hidden" aria-label="Resume controls">
       <div>
-        <div className="text-[13px] font-semibold tracking-wide">Ming Shi · Resume</div>
-        <div className="text-[10px] text-sky-100/55">eMobility · V2G · Smart Charging · Software Leadership</div>
+        <a href="#ming-resume" className="ming-toolbar-name">Ming Shi <span>/ Resume</span></a>
+        <p className="ming-toolbar-description">eMobility · V2G · Smart Charging · Software Leadership</p>
       </div>
       <div className="flex gap-2">
-        <Button aria-label="Toggle theme" aria-pressed={dark} title={dark ? "Switch to light theme" : "Switch to dark theme"} variant="ghost" size="sm" className={`h-8 border text-sky-50 hover:bg-white/10 hover:text-white ${dark ? "border-[#8be9fd]/45 bg-[#8be9fd]/12 text-[#8be9fd]" : "border-white/10"}`} onClick={toggleTheme}>
+        <Button aria-label="Toggle theme" aria-pressed={dark} title={dark ? "Switch to light theme" : "Switch to dark theme"} variant="ghost" size="sm" className="ming-theme-button" onClick={toggleTheme}>
           {dark ? <Sun /> : <Moon />}
         </Button>
-        <Button size="sm" className="h-8 bg-[#8be9fd] text-[#252a37] shadow-md shadow-slate-950/20 hover:bg-[#b8f1ff]" onClick={() => window.print()}>
+        <Button size="sm" className="ming-export-button" onClick={() => window.print()}>
           <Printer /> Export PDF
         </Button>
       </div>
-    </div>
+    </nav>
   );
 }

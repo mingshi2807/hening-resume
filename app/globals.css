@@ -367,175 +367,228 @@ body {
   }
 }
 
-/* Ming Shi minimalist resume */
-.ming-document { padding-bottom: 2.5rem; }
-.ming-page { border-color: rgba(86, 125, 166, .14); }
-.ming-sidebar {
-  padding: 12mm 7mm 9mm;
-  background:
-    radial-gradient(circle at 15% 0%, rgba(116, 151, 188, .14), transparent 34%),
-    linear-gradient(180deg, #343844, #26344a 54%, #171d2a);
-  box-shadow: inset -1px 0 rgba(168, 213, 229, .1);
+/* Ming Shi: editorial refinement, scoped to the personal resume. */
+@font-face {
+  font-family: "Ming Source Sans";
+  src: url("/fonts/source-sans-3.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
 }
-.ming-overline {
-  color: #8be9fd;
-  font-size: 6.4pt;
-  font-weight: 800;
-  letter-spacing: .2em;
-}
-.ming-photo-frame {
-  width: 31mm;
-  height: 31mm;
-  margin-top: .8rem;
-  overflow: hidden;
-  border: 2px solid rgba(139, 233, 253, .78);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .04);
-  box-shadow: 0 0 0 4px rgba(139, 233, 253, .08);
-}
-.ming-photo-frame img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
-}
-.ming-sidebar h1 {
-  margin-top: .7rem;
-  font-family: serif;
-  font-size: 27pt;
-  font-weight: 800;
-  letter-spacing: .02em;
-}
-.ming-role {
-  margin-top: .5rem;
-  color: rgba(255, 255, 255, .66);
-  font-size: 8pt;
+@font-face {
+  font-family: "Ming Source Sans";
+  src: url("/fonts/source-sans-3-semibold.ttf") format("truetype");
+  font-style: normal;
   font-weight: 600;
-  line-height: 1.45;
-  letter-spacing: .11em;
+  font-display: swap;
 }
-.ming-contact {
-  display: grid;
-  gap: .45rem;
-  margin-top: 1.4rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, .14);
-  color: rgba(255, 255, 255, .7);
-  font-size: 7.1pt;
-  line-height: 1.35;
+@font-face {
+  font-family: "Ming Source Sans";
+  src: url("/fonts/source-sans-3-bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
 }
-.ming-contact p { display: flex; align-items: flex-start; gap: .45rem; }
-.ming-contact svg { width: .85rem; height: .85rem; flex: none; color: #86a4b9; }
-.ming-metrics {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: .45rem;
-  margin-top: 1.1rem;
+@font-face {
+  font-family: "Ming Newsreader";
+  src: url("/fonts/newsreader.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
 }
-.ming-metrics div {
-  display: grid;
-  min-height: 3rem;
-  place-content: center;
-  padding: .35rem;
-  border: 1px solid rgba(168, 213, 229, .12);
-  border-radius: .5rem;
-  background: rgba(255, 255, 255, .04);
-  text-align: center;
+.ming-resume-shell {
+  --ming-ink: #293746;
+  --ming-copy: #42505b;
+  --ming-accent: #3e6766;
+  --ming-rule: #d6dedf;
+  --ming-paper: #ffffff;
+  --ming-canvas: #edf0f0;
+  min-height: 100vh;
+  padding-top: 1.25rem;
+  background: var(--ming-canvas);
+  color: var(--ming-ink);
+  font-family: "Ming Source Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-variant-ligatures: none;
 }
-.ming-metrics strong { color: #d9f2f8; font-size: 11pt; }
-.ming-metrics span { margin-top: .12rem; color: rgba(255, 255, 255, .5); font-size: 5.8pt; line-height: 1.25; }
-.ming-side-section {
-  margin-top: 1.2rem;
-  padding-top: .85rem;
-  border-top: 1px solid rgba(255, 255, 255, .14);
+.dark .ming-resume-shell {
+  --ming-ink: #f0f3f3;
+  --ming-copy: #c6ced6;
+  --ming-accent: #afcdc9;
+  --ming-rule: #47515e;
+  --ming-paper: #282a36;
+  --ming-canvas: #1e222c;
 }
-.ming-side-section h2 {
+.ming-resume-shell ::selection { background: #c7ded9; color: #203330; }
+.ming-resume-shell :focus-visible { outline: 2px solid var(--ming-accent); outline-offset: 4px; }
+.ming-toolbar {
   display: flex;
   align-items: center;
-  gap: .45rem;
-  color: rgba(255, 255, 255, .92);
-  font-size: 8.2pt;
-  font-weight: 800;
-  letter-spacing: .08em;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(210mm, calc(100% - 2rem));
+  margin: 0 auto 1.25rem;
+  color: var(--ming-ink);
 }
-.ming-side-section h2 span { color: #8be9fd; }
-.ming-side-section h2 svg { width: .85rem; height: .85rem; }
-.ming-side-section ul { display: grid; gap: .36rem; margin-top: .65rem; }
-.ming-side-section li {
+.ming-toolbar-name { font-size: 1rem; font-weight: 600; text-decoration: none; }
+.ming-toolbar-name span, .ming-toolbar-description { color: var(--ming-copy); font-weight: 400; }
+.ming-toolbar-description { margin-top: .15rem; font-size: .8rem; }
+.ming-theme-button, .ming-export-button { min-width: 44px; min-height: 44px; border-radius: 4px; box-shadow: none; }
+.ming-theme-button { background: transparent; color: var(--ming-ink); }
+.ming-theme-button:hover { background: var(--ming-rule); color: var(--ming-ink); }
+.ming-export-button { background: var(--ming-ink); color: var(--ming-paper); }
+.ming-export-button:hover { background: var(--ming-accent); color: var(--ming-paper); }
+.ming-document { display: grid; gap: 1.5rem; padding-bottom: 2rem; }
+.ming-page {
+  grid-template-columns: 30% 70%;
+  border: 0;
+  background: var(--ming-paper);
+  box-shadow: 0 8px 28px rgba(36, 49, 62, .09);
+}
+.dark .ming-page { box-shadow: 0 8px 28px rgba(8, 12, 20, .2); }
+.ming-page::before, .ming-page::after { content: none; }
+.ming-sidebar {
   position: relative;
-  padding-left: .7rem;
-  color: rgba(255, 255, 255, .68);
-  font-size: 6.8pt;
-  line-height: 1.35;
+  min-width: 0;
+  padding: 11mm 7mm 18mm;
+  background: #343844;
+  color: #f6f7f8;
 }
-.ming-side-section li::before { content: ""; position: absolute; top: .45em; left: 0; width: 3px; height: 3px; border-radius: 50%; background: #71899e; }
-.ming-content { padding: 10mm 9mm 10mm; }
-.ming-section-heading { margin-bottom: .75rem; }
-.ming-section-heading > span {
-  display: inline-block;
-  color: #567da6;
-  font-size: 6pt;
-  font-weight: 800;
-  letter-spacing: .2em;
+.ming-sidebar-inner { position: relative; z-index: 1; }
+.ming-overline { color: #c6dcd9; font-size: 6.4pt; font-weight: 600; line-height: 1.5; letter-spacing: .12em; }
+.ming-photo-frame {
+  width: 32mm;
+  height: 32mm;
+  margin-top: 5mm;
+  overflow: hidden;
+  border: 1px solid #b6cdcd;
+  border-radius: 50%;
 }
+.ming-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+.ming-sidebar h1, .ming-name {
+  margin-top: 5mm;
+  color: #ffffff;
+  font-family: "Ming Newsreader", serif;
+  font-size: 31pt;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.025em;
+}
+.ming-role { margin-top: 3mm; color: #d9e0e7; font-size: 7.4pt; font-weight: 500; line-height: 1.5; letter-spacing: .055em; }
+.ming-contact { display: grid; gap: 2mm; margin-top: 5mm; color: #d9e0e7; font-size: 8pt; line-height: 1.4; }
+.ming-contact p, .ming-contact a { display: flex; align-items: flex-start; gap: .4rem; }
+.ming-contact a { text-decoration: underline; text-decoration-color: #7e8d9b; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.ming-contact a:hover { color: #ffffff; text-decoration-color: #ffffff; }
+.ming-contact svg { width: .8rem; height: .8rem; margin-top: .15em; flex: none; color: #c6dcd9; }
+.ming-metrics { display: grid; gap: .28rem; margin-top: 5mm; padding-top: 3mm; border-top: 1px solid #626b79; }
+.ming-metrics div { display: flex; align-items: baseline; gap: .4rem; }
+.ming-metrics strong { min-width: 2.2em; color: #ffffff; font-size: 9pt; font-weight: 600; }
+.ming-metrics span { color: #d9e0e7; font-size: 7.5pt; line-height: 1.4; }
+.ming-side-section { margin-top: 6mm; padding-top: 3mm; border-top: 1px solid #626b79; }
+.ming-side-section h2 { color: #ffffff; font-size: 10pt; font-weight: 600; line-height: 1.25; }
+.ming-side-section ul { display: grid; gap: 1.8mm; margin-top: 3mm; }
+.ming-side-section li { color: #d9e0e7; font-size: 8pt; line-height: 1.35; overflow-wrap: anywhere; }
+.ming-sidebar .page-marker { right: 7mm; left: 7mm; bottom: 7mm; padding-top: 3mm; border-color: #626b79; color: #d9e0e7; font-size: 6.7pt; letter-spacing: .08em; }
+.ming-sidebar .page-marker strong { color: #ffffff; font-size: 7.5pt; font-weight: 500; font-variant-numeric: tabular-nums; }
+.ming-content, .dark .ming-content { min-width: 0; padding: 11mm 9mm; background: var(--ming-paper); }
+.ming-content > .ming-section-heading:not(:first-child) { margin-top: 5mm; }
+.ming-section-heading { margin-bottom: 3mm; }
 .ming-section-heading h2 {
-  margin-top: .18rem;
-  padding-bottom: .35rem;
-  border-bottom: 1px solid rgba(86, 125, 166, .24);
-  color: #343844;
-  font-family: serif;
+  color: var(--ming-ink);
+  font-family: "Ming Newsreader", serif;
   font-size: 17pt;
-  font-weight: 800;
-  line-height: 1.12;
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -.015em;
+  text-wrap: balance;
 }
-.ming-summary { color: #596170; font-size: 8.2pt; line-height: 1.55; }
-.ming-highlight-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: .55rem; margin: .9rem 0 1rem; }
-.ming-highlight-row div { padding: .6rem .55rem; border: 1px solid rgba(86, 125, 166, .16); border-radius: .55rem; background: rgba(244, 248, 251, .72); }
-.ming-highlight-row strong { display: block; color: #343844; font-size: 9pt; }
-.ming-highlight-row span { display: block; margin-top: .18rem; color: #738093; font-size: 6.2pt; line-height: 1.3; }
-.ming-feature { margin-bottom: .75rem; padding-left: .7rem; border-left: 2px solid rgba(86, 125, 166, .42); }
-.ming-feature h3 { color: #2f3542; font-size: 9.1pt; font-weight: 800; line-height: 1.25; }
-.ming-feature > div, .ming-feature > p { margin-top: .3rem; color: #5c6574; font-size: 7.35pt; line-height: 1.45; }
-.ming-bullets { display: grid; gap: .23rem; padding-left: .9rem; }
-.ming-bullets li { list-style: disc; padding-left: .08rem; }
-.ming-bullets li::marker { color: #7b9bb7; }
-.ming-note { margin-bottom: .7rem; padding: .6rem .7rem; border-radius: .45rem; background: linear-gradient(135deg, rgba(86, 125, 166, .08), rgba(168, 213, 229, .08)); color: #596170; font-size: 7.3pt; line-height: 1.45; }
-.ming-two-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: .35rem .8rem; }
-.ming-event-list { display: grid; gap: .37rem; }
-.ming-event-list div { display: grid; grid-template-columns: 26mm 1fr; gap: .6rem; padding-bottom: .34rem; border-bottom: 1px solid rgba(86, 125, 166, .1); }
-.ming-event-list strong { color: #343844; font-size: 7.6pt; }
-.ming-event-list span { color: #626c7b; font-size: 7pt; line-height: 1.4; }
-.ming-career-panel { margin-bottom: .85rem; padding: .65rem .7rem .7rem; border: 1px solid rgba(86, 125, 166, .18); border-radius: .6rem; background: linear-gradient(135deg, rgba(86, 125, 166, .09), rgba(139, 233, 253, .045)); }
-.ming-career-panel .ming-section-heading { margin-bottom: .5rem; }
-.ming-career-panel .ming-section-heading h2 { font-size: 14pt; }
-.ming-career-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .38rem; }
-.ming-career-grid div { min-height: 2.75rem; padding: .38rem .46rem; border-left: 2px solid rgba(86, 125, 166, .48); background: rgba(255, 255, 255, .6); }
-.ming-career-grid strong { display: block; color: #343844; font-size: 7.5pt; line-height: 1.25; }
-.ming-career-grid span { display: block; margin-top: .12rem; color: #697485; font-size: 6.4pt; line-height: 1.3; }
-.ming-career-grid div:last-child { grid-column: 1 / -1; min-height: auto; border-left-color: #45bfd7; background: linear-gradient(135deg, #343844, #26344a); }
-.ming-career-grid div:last-child strong { color: #8be9fd; }
-.ming-career-grid div:last-child span { color: rgba(255, 255, 255, .76); }
-.ming-compact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .35rem; margin-bottom: .9rem; }
-.ming-compact-grid span { padding: .38rem .5rem; border: 1px solid rgba(86, 125, 166, .14); border-radius: .35rem; color: #596170; font-size: 6.8pt; text-align: center; }
-.ming-final-statement { padding: .85rem 1rem; border-radius: .65rem; background: linear-gradient(135deg, #343844, #26344a 58%, #17263d); color: white; }
-.ming-final-statement > span { color: #8be9fd; font-size: 5.8pt; font-weight: 800; letter-spacing: .18em; }
-.ming-final-statement h2 { margin-top: .3rem; font-family: serif; font-size: 15pt; font-weight: 800; }
-.ming-final-statement p { margin-top: .35rem; color: rgba(255, 255, 255, .72); font-size: 7.1pt; line-height: 1.45; }
-.dark .ming-section-heading h2, .dark .ming-feature h3, .dark .ming-event-list strong, .dark .ming-career-grid strong { color: #f2f7fb; }
-.dark .ming-summary, .dark .ming-feature > div, .dark .ming-feature > p, .dark .ming-event-list span { color: #c7ccd8; }
-.dark .ming-highlight-row div, .dark .ming-compact-grid span { border-color: #56627a; background: rgba(255, 255, 255, .035); color: #c7ccd8; }
-.dark .ming-career-panel, .dark .ming-career-grid div { background: rgba(255, 255, 255, .035); }
-.dark .ming-career-grid span { color: #c7ccd8; }
-.dark .ming-highlight-row strong { color: white; }
+.ming-content > .ming-section-heading:first-child h2 { font-size: 23pt; line-height: 1.02; }
+.ming-summary { color: var(--ming-copy); font-size: 9pt; line-height: 1.45; text-wrap: pretty; }
+.ming-highlight-row { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 3mm; margin: 4mm 0 5mm; padding: 3mm 0; border-block: 1px solid var(--ming-rule); }
+.ming-highlight-row strong { display: block; color: var(--ming-ink); font-size: 9pt; font-weight: 600; }
+.ming-highlight-row span { display: block; margin-top: 1mm; color: var(--ming-copy); font-size: 7.5pt; line-height: 1.3; }
+.ming-career-panel { margin-bottom: 5mm; }
+.ming-career-panel .ming-section-heading { margin-bottom: 2mm; }
+.ming-career-grid { display: grid; }
+.ming-career-grid div { display: grid; grid-template-columns: 36% 1fr; gap: 3mm; padding: 1.2mm 0; border-bottom: 1px solid var(--ming-rule); }
+.ming-career-grid strong { color: var(--ming-ink); font-size: 8.5pt; font-weight: 600; line-height: 1.3; }
+.ming-career-grid span { color: var(--ming-copy); font-size: 8pt; line-height: 1.3; }
+.ming-career-grid div:last-child { padding-block: 2mm; }
+.ming-career-grid div:last-child strong { color: var(--ming-accent); font-weight: 700; }
+.ming-career-grid div:last-child span { color: var(--ming-ink); font-weight: 600; }
+.ming-feature { margin-bottom: 3.5mm; }
+.ming-feature h3 { color: var(--ming-ink); font-size: 9.5pt; font-weight: 600; line-height: 1.25; }
+.ming-feature > div { margin-top: 1.4mm; color: var(--ming-copy); font-size: 8.5pt; line-height: 1.4; text-wrap: pretty; }
+.ming-bullets { display: grid; gap: 1mm; padding-left: 3mm; }
+.ming-bullets li { list-style: disc; padding-left: .15rem; }
+.ming-bullets li::marker { color: var(--ming-accent); font-size: .7em; }
+.ming-note { color: var(--ming-copy); font-size: 8.5pt; line-height: 1.4; text-wrap: pretty; }
+.ming-two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2mm 5mm; }
+.ming-event-list { display: grid; }
+.ming-event-list div { display: grid; grid-template-columns: 29mm 1fr; gap: 3mm; padding: 3mm 0; border-bottom: 1px solid var(--ming-rule); }
+.ming-event-list strong { color: var(--ming-ink); font-size: 8.5pt; font-weight: 600; line-height: 1.35; }
+.ming-event-list span { color: var(--ming-copy); font-size: 8.5pt; line-height: 1.4; text-wrap: pretty; }
+.ming-compact-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2mm 3mm; margin-bottom: 6mm; }
+.ming-compact-grid span { padding-bottom: 1.5mm; border-bottom: 1px solid var(--ming-rule); color: var(--ming-copy); font-size: 8pt; line-height: 1.3; }
+.ming-final-statement { margin-top: 7mm; padding-top: 5mm; border-top: 1px solid var(--ming-accent); }
+.ming-final-statement h2 { max-width: 25ch; color: var(--ming-ink); font-family: "Ming Newsreader", serif; font-size: 21pt; font-weight: 500; line-height: 1.1; letter-spacing: -.02em; text-wrap: balance; }
+.ming-final-statement p { margin-top: 3mm; color: var(--ming-copy); font-size: 8.5pt; line-height: 1.5; text-wrap: pretty; }
 
 @media screen and (max-width: 900px) {
-  .ming-document { padding-inline: .75rem; }
-  .ming-page { grid-template-columns: 1fr; height: auto; min-height: 297mm; }
-  .ming-sidebar, .ming-content { padding: 2rem; }
+  .ming-resume-shell { padding-top: 1rem; }
+  .ming-toolbar { align-items: flex-start; width: calc(100% - 2rem); }
+  .ming-toolbar-description { display: none; }
+  .ming-document { gap: 1rem; padding: 0 1rem 1rem; }
+  .ming-page { width: 100%; height: auto; min-height: 0; grid-template-columns: 1fr; overflow: visible; }
+  .ming-sidebar { padding: 1.75rem; }
+  .ming-sidebar-inner { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; }
+  .ming-identity, .ming-contact { grid-column: 1 / -1; }
+  .ming-identity { position: relative; padding-right: 7rem; min-height: 7rem; }
+  .ming-identity .ming-photo-frame { position: absolute; top: 0; right: 0; width: 6rem; height: 6rem; margin: 0; }
+  .ming-overline { max-width: 34ch; font-size: .65rem; }
+  .ming-sidebar h1, .ming-name { margin-top: 1rem; font-size: 2.6rem; }
+  .ming-role { font-size: .75rem; }
+  .ming-contact { margin: 0; font-size: .9rem; }
+  .ming-metrics { grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; padding-top: 1rem; gap: .65rem 1rem; }
+  .ming-metrics strong, .ming-metrics span { font-size: .9rem; }
+  .ming-metrics div { flex-wrap: wrap; }
+  .ming-side-section { margin: 0; padding-top: 1rem; }
+  .ming-page:first-child .ming-side-section { grid-column: 1 / -1; }
+  .ming-page:first-child .ming-side-section ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem 1rem; }
+  .ming-side-section h2 { font-size: 1rem; }
+  .ming-side-section li { font-size: .875rem; }
+  .ming-sidebar .page-marker { position: static; margin-top: 1.75rem; padding-top: 1rem; font-size: .75rem; }
+  .ming-sidebar .page-marker strong { font-size: .8rem; }
+  .ming-content, .dark .ming-content { padding: 1.75rem; }
+  .ming-content > .ming-section-heading:first-child h2 { font-size: 2rem; }
+  .ming-section-heading h2 { font-size: 1.6rem; }
+  .ming-content > .ming-section-heading:not(:first-child) { margin-top: 2rem; }
+  .ming-summary, .ming-feature > div, .ming-note, .ming-event-list span, .ming-final-statement p { font-size: 1rem; line-height: 1.55; }
+  .ming-feature { margin-bottom: 1.25rem; }
+  .ming-feature h3 { font-size: 1.1rem; }
+  .ming-highlight-row { gap: .8rem; margin-block: 1.25rem; padding-block: 1rem; }
+  .ming-highlight-row strong { font-size: .95rem; }
+  .ming-highlight-row span { font-size: .8rem; }
+  .ming-career-panel { margin-bottom: 1.75rem; }
+  .ming-career-grid div { grid-template-columns: 38% 1fr; padding-block: .65rem; }
+  .ming-career-grid div:last-child { padding-block: .65rem; }
+  .ming-career-grid strong, .ming-career-grid span { font-size: .9rem; }
+  .ming-two-col { grid-template-columns: 1fr; gap: .5rem; }
+  .ming-event-list div { grid-template-columns: 1fr; gap: .35rem; padding-block: 1rem; }
+  .ming-event-list strong { font-size: 1rem; }
+  .ming-compact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+  .ming-compact-grid span { font-size: .9rem; }
+  .ming-final-statement h2 { font-size: 2rem; }
+}
+
+@media screen and (max-width: 480px) {
+  .ming-career-grid div { grid-template-columns: 1fr; gap: .2rem; }
 }
 
 @media print {
-  .ming-document { padding: 0; }
-  .ming-page { width: 210mm; height: 297mm; margin: 0; border: 0; box-shadow: none; break-after: page; }
+  .ming-resume-shell { --ming-ink: #293746; --ming-copy: #42505b; --ming-accent: #3e6766; --ming-rule: #d6dedf; --ming-paper: #ffffff; padding: 0; background: #ffffff; }
+  .ming-toolbar { display: none !important; }
+  .ming-document { display: block; padding: 0; }
+  .ming-page, .dark .ming-page { width: 210mm; height: 297mm; margin: 0; box-shadow: none; break-after: page; }
   .ming-page:last-child { break-after: auto; }
 }
