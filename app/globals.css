@@ -460,6 +460,7 @@ body {
   width: 32mm;
   height: 32mm;
   margin-top: 5mm;
+  margin-inline: auto;
   overflow: hidden;
   border: 1px solid #b6cdcd;
   border-radius: 50%;
@@ -503,7 +504,7 @@ body {
   text-wrap: balance;
 }
 .ming-content > .ming-section-heading:first-child h2 { font-size: 23pt; line-height: 1.02; }
-.ming-summary { color: var(--ming-copy); font-size: 9pt; line-height: 1.45; text-wrap: pretty; }
+.ming-summary { color: var(--ming-copy); font-size: 9pt; line-height: 1.45; text-align: justify; text-wrap: pretty; }
 .ming-highlight-row { display: grid; grid-template-columns: 1fr 1.3fr 1fr; gap: 3mm; margin: 4mm 0 5mm; padding: 3mm 0; border-block: 1px solid var(--ming-rule); }
 .ming-highlight-row strong { display: block; color: var(--ming-ink); font-size: 9pt; font-weight: 600; }
 .ming-highlight-row span { display: block; margin-top: 1mm; color: var(--ming-copy); font-size: 7.5pt; line-height: 1.3; }
@@ -533,6 +534,7 @@ body {
 .ming-final-statement { margin-top: 7mm; padding-top: 5mm; border-top: 1px solid var(--ming-accent); }
 .ming-final-statement h2 { max-width: 25ch; color: var(--ming-ink); font-family: "Ming Newsreader", serif; font-size: 21pt; font-weight: 500; line-height: 1.1; letter-spacing: -.02em; text-wrap: balance; }
 .ming-final-statement p { margin-top: 3mm; color: var(--ming-copy); font-size: 8.5pt; line-height: 1.5; text-wrap: pretty; }
+.ming-final-statement .ming-final-label { margin: 0 0 2mm; color: var(--ming-accent); font-size: 7pt; font-weight: 600; letter-spacing: .12em; }
 
 @media screen and (max-width: 900px) {
   .ming-resume-shell { padding-top: 1rem; }
@@ -564,6 +566,7 @@ body {
   .ming-section-heading h2 { font-size: 1.6rem; }
   .ming-content > .ming-section-heading:not(:first-child) { margin-top: 2rem; }
   .ming-summary, .ming-feature > div, .ming-note, .ming-event-list span, .ming-final-statement p { font-size: 1rem; line-height: 1.55; }
+  .ming-summary { text-align: left; }
   .ming-feature { margin-bottom: 1.25rem; }
   .ming-feature h3 { font-size: 1.1rem; }
   .ming-highlight-row { gap: .8rem; margin-block: 1.25rem; padding-block: 1rem; }
@@ -579,6 +582,7 @@ body {
   .ming-compact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
   .ming-compact-grid span { font-size: .9rem; }
   .ming-final-statement h2 { font-size: 2rem; }
+  .ming-final-statement .ming-final-label { font-size: .8rem; }
 }
 
 @media screen and (max-width: 480px) {
